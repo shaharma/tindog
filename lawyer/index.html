@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Becky Fuhrmann | Attorney at Law — עו״ד בקי פורמן</title>
+  <meta name="description" content="Becky Fuhrmann — Commercial Law, Corporate Law & Data Privacy. Israel-based attorney providing legal counsel to companies and institutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & FOUNDATIONS ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-ink: #1a1a2e;
+      --color-ink-light: #4a4a5a;
+      --color-ink-muted: #8a8a9a;
+      --color-surface: #fefefe;
+      --color-surface-warm: #faf9f7;
+      --color-surface-alt: #f3f1ee;
+      --color-accent: #8b6914;
+      --color-accent-light: #c49b2a;
+      --color-accent-subtle: rgba(139, 105, 20, 0.08);
+      --color-border: rgba(26, 26, 46, 0.08);
+      --color-border-strong: rgba(26, 26, 46, 0.15);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-hebrew: 'Heebo', 'Inter', sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-ink);
+      background: var(--color-surface);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ===== LANGUAGE TOGGLE ===== */
+    .lang-toggle {
+      position: fixed;
+      top: 28px;
+      right: 32px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--color-border);
+      border-radius: 100px;
+      padding: 4px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s var(--ease-out);
+    }
+
+    .lang-toggle:hover { box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 8px 18px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-ink-muted);
+      cursor: pointer;
+      border-radius: 100px;
+      transition: all 0.3s var(--ease-out);
+      text-transform: uppercase;
+    }
+
+    .lang-btn.active {
+      background: var(--color-ink);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.2);
+    }
+
+    .lang-btn:hover:not(.active) { color: var(--color-ink); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(139, 105, 20, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139, 105, 20, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-ornament {
+      width: 48px;
+      height: 1px;
+      background: var(--color-accent);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.2s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.35s forwards;
+    }
+
+    .hero-title {
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.5s forwards;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.6s forwards;
+    }
+
+    .hero-divider span {
+      width: 6px;
+      height: 6px;
+      border: 1px solid var(--color-accent);
+      transform: rotate(45deg);
+    }
+
+    .hero-divider::before, .hero-divider::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--color-border-strong);
+    }
+
+    .hero-summary {
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-ink-light);
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.7s forwards;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.85s forwards;
+    }
+
+    .hero-contact a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--color-ink-light);
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.3s var(--ease-out);
+    }
+
+    .hero-contact a:hover { color: var(--color-accent); }
+
+    .hero-contact svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s var(--ease-out) 1.2s forwards;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 32px;
+      background: var(--color-border-strong);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--color-accent);
+      animation: scrollPulse 2s var(--ease-in-out) infinite;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 100px 24px;
+    }
+
+    .section-alt { background: var(--color-surface-warm); }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .section-line {
+      width: 40px;
+      height: 1px;
+      background: var(--color-accent);
+      margin: 24px auto 0;
+    }
+
+    /* ===== PRACTICE AREAS ===== */
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .practice-card {
+      background: var(--color-surface);
+      padding: 48px 32px;
+      text-align: center;
+      transition: all 0.5s var(--ease-out);
+      position: relative;
+    }
+
+    .practice-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width 0.5s var(--ease-out);
+    }
+
+    .practice-card:hover { background: var(--color-accent-subtle); }
+    .practice-card:hover::after { width: 60px; }
+
+    .practice-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 24px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.2;
+    }
+
+    .practice-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .practice-card p {
+      font-size: 0.88rem;
+      color: var(--color-ink-light);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ===== EXPERIENCE TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--color-border-strong);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s var(--ease-out);
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -44px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border: 2px solid var(--color-accent);
+      border-radius: 50%;
+      background: var(--color-surface);
+      z-index: 1;
+    }
+
+    .section-alt .timeline-item::before {
+      background: var(--color-surface-warm);
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-date {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-role {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .timeline-company {
+      font-size: 0.9rem;
+      color: var(--color-ink-muted);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .timeline-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-details li {
+      font-size: 0.9rem;
+      color: var(--color-ink-light);
+      line-height: 1.7;
+      font-weight: 300;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .timeline-details li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 1px;
+      background: var(--color-accent);
+    }
+
+    /* ===== DPO HIGHLIGHT ===== */
+    .dpo-highlight {
+      margin-top: 64px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-alt .dpo-highlight { background: #fff; }
+
+    .dpo-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    }
+
+    .dpo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-accent-subtle);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .dpo-highlight h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .dpo-orgs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .dpo-org {
+      padding: 12px 24px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--color-ink-light);
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .dpo-org:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 105, 20, 0.1);
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .edu-card {
+      padding: 32px;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: var(--color-surface);
+      transition: all 0.4s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--color-accent);
+      transition: height 0.4s var(--ease-out);
+    }
+
+    .edu-card:hover::before { height: 100%; }
+    .edu-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+
+    .edu-year {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+
+    .edu-degree {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .edu-school {
+      font-size: 0.85rem;
+      color: var(--color-ink-muted);
+      font-weight: 400;
+    }
+
+    .edu-note {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: var(--color-ink);
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact-section .section-label { color: var(--color-accent-light); }
+    .contact-section .section-title { color: #fff; }
+    .contact-section .section-line { background: var(--color-accent-light); }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      transition: all 0.3s var(--ease-out);
+      padding: 16px 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+    }
+
+    .contact-item:hover {
+      color: #fff;
+      border-color: var(--color-accent-light);
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-2px);
+    }
+
+    .contact-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--color-accent-light);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--color-ink);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0% { top: -100%; }
+      50% { top: 100%; }
+      100% { top: 100%; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== HEBREW MODE ===== */
+    [dir="rtl"] {
+      font-family: var(--font-hebrew);
+    }
+
+    [dir="rtl"] .hero-name {
+      font-family: var(--font-hebrew);
+      font-weight: 700;
+    }
+
+    [dir="rtl"] .hero-title {
+      letter-spacing: 0.05em;
+    }
+
+    [dir="rtl"] .section-title,
+    [dir="rtl"] .practice-card h3,
+    [dir="rtl"] .timeline-role,
+    [dir="rtl"] .dpo-highlight h3,
+    [dir="rtl"] .edu-degree {
+      font-family: var(--font-hebrew);
+      font-weight: 600;
+    }
+
+    [dir="rtl"] .timeline {
+      padding-left: 0;
+      padding-right: 48px;
+    }
+
+    [dir="rtl"] .timeline::before {
+      left: auto;
+      right: 8px;
+    }
+
+    [dir="rtl"] .timeline-item::before {
+      left: auto;
+      right: -44px;
+    }
+
+    [dir="rtl"] .timeline-details li {
+      padding-left: 0;
+      padding-right: 16px;
+    }
+
+    [dir="rtl"] .timeline-details li::before {
+      left: auto;
+      right: 0;
+    }
+
+    [dir="rtl"] .lang-toggle {
+      right: auto;
+      left: 32px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 100px 20px 60px; }
+      section { padding: 72px 20px; }
+
+      .dpo-highlight { padding: 32px 20px; }
+
+      .hero-contact { gap: 16px; }
+
+      .contact-grid { flex-direction: column; align-items: center; }
+
+      .lang-toggle {
+        top: 16px;
+        right: 16px;
+      }
+
+      [dir="rtl"] .lang-toggle {
+        right: auto;
+        left: 16px;
+      }
+
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-contact {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lang-btn { padding: 6px 14px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle" role="navigation" aria-label="Language">
+    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="he" onclick="setLang('he')">עב</button>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="top">
+    <div class="hero-ornament"></div>
+    <h1 class="hero-name" data-en="Becky Fuhrmann" data-he="בקי פורמן">Becky Fuhrmann</h1>
+    <p class="hero-title" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</p>
+    <div class="hero-divider"><span></span></div>
+    <p class="hero-summary" data-en="Commercial lawyer providing ongoing legal counsel to companies, corporations, and institutions. Specializing in commercial transactions, contract negotiations, and data privacy — with a focus on practical, business-oriented solutions." data-he="עורכת דין מסחרית המלווה חברות, תאגידים ומוסדות באופן שוטף. מתמחה בעסקאות מסחריות, ניהול משא ומתן חוזי ודיני פרטיות מידע — עם דגש על פתרונות מעשיים ועסקיים.">Commercial lawyer providing ongoing legal counsel to companies, corporations, and institutions. Specializing in commercial transactions, contract negotiations, and data privacy — with a focus on practical, business-oriented solutions.</p>
+    <div class="hero-contact">
+      <a href="tel:+972507726286">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +972-50-772-6286
+      </a>
+      <a href="mailto:beckyfx3@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        beckyfx3@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="scroll-indicator">
+      <span data-en="Scroll" data-he="גלול">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- ===== PRACTICE AREAS ===== -->
+  <section id="practice">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label" data-en="Areas of Practice" data-he="תחומי התמחות">Areas of Practice</p>
+        <h2 class="section-title" data-en="Focused Expertise" data-he="מומחיות ממוקדת">Focused Expertise</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="practice-grid reveal">
+        <div class="practice-card">
+          <svg class="practice-icon" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M6 18h36"/><circle cx="14" cy="14" r="1.5"/><circle cx="20" cy="14" r="1.5"/><path d="M14 26h20M14 32h14"/></svg>
+          <h3 data-en="Commercial Law" data-he="משפט מסחרי">Commercial Law</h3>
+          <p data-en="Complex commercial agreements, cross-border transactions, distribution, acquisition, and cooperation contracts." data-he="הסכמים מסחריים מורכבים, עסקאות חוצות גבולות, הפצה, רכישה והסכמי שיתוף פעולה.">Complex commercial agreements, cross-border transactions, distribution, acquisition, and cooperation contracts.</p>
+        </div>
+        <div class="practice-card">
+          <svg class="practice-icon" viewBox="0 0 48 48"><path d="M24 6L6 16v2h36v-2L24 6z"/><rect x="10" y="22" width="4" height="14"/><rect x="22" y="22" width="4" height="14"/><rect x="34" y="22" width="4" height="14"/><path d="M4 40h40M4 36h40"/></svg>
+          <h3 data-en="Corporate Law" data-he="משפט תאגידי">Corporate Law</h3>
+          <p data-en="Ongoing legal counsel for corporations and institutions, governance, regulatory compliance, and business operations." data-he="ייעוץ משפטי שוטף לתאגידים ומוסדות, ממשל תאגידי, ציות רגולטורי וניהול פעילות עסקית.">Ongoing legal counsel for corporations and institutions, governance, regulatory compliance, and business operations.</p>
+        </div>
+        <div class="practice-card">
+          <svg class="practice-icon" viewBox="0 0 48 48"><rect x="12" y="6" width="24" height="36" rx="4"/><circle cx="24" cy="24" r="7"/><path d="M21 24l2 2 4-4"/><circle cx="24" cy="37" r="1.5"/></svg>
+          <h3 data-en="Data Privacy" data-he="פרטיות מידע">Data Privacy</h3>
+          <p data-en="GDPR & Israeli privacy compliance, DPO services, database mapping, policy drafting, and regulatory liaison." data-he="ציות ל-GDPR ודיני הגנת הפרטיות הישראליים, שירותי DPO, מיפוי מאגרי מידע, עריכת מדיניות וקשר עם הרגולטור.">GDPR & Israeli privacy compliance, DPO services, database mapping, policy drafting, and regulatory liaison.</p>
+        </div>
+      </div>
+
+      <!-- DPO Highlight -->
+      <div class="dpo-highlight reveal">
+        <div class="dpo-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span data-en="Data Protection Officer" data-he="ממונה על הגנת מידע">Data Protection Officer</span>
+        </div>
+        <h3 data-en="Serving as external DPO for leading Israeli institutions" data-he="משמשת כממונה חיצונית על הגנת מידע עבור מוסדות מובילים בישראל">Serving as external DPO for leading Israeli institutions</h3>
+        <div class="dpo-orgs">
+          <div class="dpo-org" data-en="Technion — Israel Institute of Technology" data-he="הטכניון — מכון טכנולוגי לישראל">Technion — Israel Institute of Technology</div>
+          <div class="dpo-org" data-en="National School of Engineers at Technion" data-he="בית הספר הלאומי למהנדסים בטכניון">National School of Engineers at Technion</div>
+          <div class="dpo-org" data-en="Technological College Nof HaGalil" data-he="המכללה הטכנולוגית נוף הגליל">Technological College Nof HaGalil</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="section-alt" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label" data-en="Experience" data-he="ניסיון מקצועי">Experience</p>
+        <h2 class="section-title" data-en="Professional Journey" data-he="מסלול מקצועי">Professional Journey</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024 – <span data-en="Present" data-he="היום">Present</span></div>
+          <div class="timeline-role" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</div>
+          <div class="timeline-company" data-en="Ben Ari Fish & Co., Law Offices — Tel Aviv" data-he="בן ארי פיש ושות׳, משרד עורכי דין — תל אביב">Ben Ari Fish & Co., Law Offices — Tel Aviv</div>
+          <ul class="timeline-details">
+            <li data-en="Legal counsel to companies and institutions on commercial law, corporate law, privacy, and regulatory matters." data-he="ייעוץ משפטי לחברות ומוסדות בתחומי המשפט המסחרי, התאגידי, הפרטיות והרגולציה.">Legal counsel to companies and institutions on commercial law, corporate law, privacy, and regulatory matters.</li>
+            <li data-en="Lead negotiations and draft complex commercial agreements including international contracts." data-he="הובלת משא ומתן ועריכת הסכמים מסחריים מורכבים, לרבות חוזים בינלאומיים.">Lead negotiations and draft complex commercial agreements including international contracts.</li>
+            <li data-en="Advise on privacy and data protection: compliance processes, database mapping, policy drafting, and DSAR handling." data-he="ייעוץ בתחום הפרטיות והגנת המידע: תהליכי ציות, מיפוי מאגרי מידע, עריכת מדיניות וטיפול בבקשות נושאי מידע.">Advise on privacy and data protection: compliance processes, database mapping, policy drafting, and DSAR handling.</li>
+            <li data-en="External DPO for the Technion and two additional major institutions." data-he="ממונה חיצונית על הגנת מידע בטכניון ובשני מוסדות מובילים נוספים.">External DPO for the Technion and two additional major institutions.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2022 – 2023</div>
+          <div class="timeline-role" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</div>
+          <div class="timeline-company" data-en="Balter Guth Aloni & Co. — Tel Aviv" data-he="בלטר גוט אלוני ושות׳ — תל אביב">Balter Guth Aloni & Co. — Tel Aviv</div>
+          <ul class="timeline-details">
+            <li data-en="Ongoing legal counsel to corporate clients on commercial, corporate, and regulatory matters." data-he="ייעוץ משפטי שוטף ללקוחות תאגידיים בתחומי המסחרי, התאגידי והרגולציה.">Ongoing legal counsel to corporate clients on commercial, corporate, and regulatory matters.</li>
+            <li data-en="Drafted, negotiated, and managed complex commercial agreements." data-he="עריכה, ניהול משא ומתן וניהול הסכמים מסחריים מורכבים.">Drafted, negotiated, and managed complex commercial agreements.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2021 – 2022</div>
+          <div class="timeline-role" data-en="Research Assistant" data-he="עוזרת מחקר">Research Assistant</div>
+          <div class="timeline-company" data-en="University of Haifa, Faculty of Law" data-he="אוניברסיטת חיפה, הפקולטה למשפטים">University of Haifa, Faculty of Law</div>
+          <ul class="timeline-details">
+            <li data-en="Developed a full academic course including curriculum design, syllabus, and lesson plans." data-he="פיתוח קורס אקדמי מלא, כולל תוכנית לימודים, סילבוס ותכניות שיעור.">Developed a full academic course including curriculum design, syllabus, and lesson plans.</li>
+            <li data-en="Conducted in-depth legal research: case law analysis, legislation review, and academic literature." data-he="ביצוע מחקר משפטי מעמיק: ניתוח פסיקה, סקירת חקיקה וספרות אקדמית.">Conducted in-depth legal research: case law analysis, legislation review, and academic literature.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2020 – 2021</div>
+          <div class="timeline-role" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</div>
+          <div class="timeline-company" data-en="Levi Barda Hazan, Law Offices" data-he="לוי ברדה חזן, משרד עורכי דין">Levi Barda Hazan, Law Offices</div>
+          <ul class="timeline-details">
+            <li data-en="Managed commercial transactions and litigation; provided ongoing legal counsel." data-he="ניהול עסקאות מסחריות והליכים משפטיים; ייעוץ משפטי שוטף.">Managed commercial transactions and litigation; provided ongoing legal counsel.</li>
+            <li data-en="Drafted pleadings and legal documents; advised clients on complex legal matters." data-he="עריכת כתבי בי־דין ומסמכים משפטיים; ייעוץ ללקוחות בסוגיות משפטיות מורכבות.">Drafted pleadings and legal documents; advised clients on complex legal matters.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2018 – 2019</div>
+          <div class="timeline-role" data-en="Legal Intern" data-he="מתמחה">Legal Intern</div>
+          <div class="timeline-company" data-en="Shlomo Cohen & Co., Litigation Department" data-he="שלמה כהן ושות׳, מחלקת ליטיגציה">Shlomo Cohen & Co., Litigation Department</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label" data-en="Education & Certifications" data-he="השכלה והסמכות">Education & Certifications</p>
+        <h2 class="section-title" data-en="Academic Background" data-he="רקע אקדמי">Academic Background</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-grid reveal">
+        <div class="edu-card">
+          <div class="edu-year">2025</div>
+          <div class="edu-degree" data-en="DPO Certification" data-he="הסמכת DPO">DPO Certification</div>
+          <div class="edu-school" data-en="Technion — Israel Privacy Protection Authority" data-he="הטכניון — הרשות להגנת הפרטיות">Technion — Israel Privacy Protection Authority</div>
+          <div class="edu-note" data-en="Grade: 98" data-he="ציון: 98">Grade: 98</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2024</div>
+          <div class="edu-degree" data-en="Board Directors Course" data-he="קורס דירקטורים">Board Directors Course</div>
+          <div class="edu-school" data-en="Israel Bar Association" data-he="לשכת עורכי הדין">Israel Bar Association</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2022</div>
+          <div class="edu-degree" data-en="LL.M" data-he="תואר שני במשפטים (LL.M)">LL.M</div>
+          <div class="edu-school" data-en="University of Haifa" data-he="אוניברסיטת חיפה">University of Haifa</div>
+          <div class="edu-note" data-en="With Honors" data-he="בהצטיינות">With Honors</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2019</div>
+          <div class="edu-degree" data-en="Licensed Attorney" data-he="רישיון עריכת דין">Licensed Attorney</div>
+          <div class="edu-school" data-en="Israel Bar Association" data-he="לשכת עורכי הדין">Israel Bar Association</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2018</div>
+          <div class="edu-degree" data-en="LL.B" data-he="תואר ראשון במשפטים (LL.B)">LL.B</div>
+          <div class="edu-school" data-en="Bar-Ilan University" data-he="אוניברסיטת בר-אילן">Bar-Ilan University</div>
+          <div class="edu-note" data-en="With Honors" data-he="בהצטיינות">With Honors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label" data-en="Get in Touch" data-he="יצירת קשר">Get in Touch</p>
+        <h2 class="section-title" data-en="Let's Work Together" data-he="בואו נעבוד יחד">Let's Work Together</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid reveal">
+        <a href="tel:+972507726286" class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +972-50-772-6286
+        </a>
+        <a href="mailto:beckyfx3@gmail.com" class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          beckyfx3@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener" class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span data-en="&copy; 2025 Becky Fuhrmann. All rights reserved." data-he="&copy; 2025 בקי פורמן. כל הזכויות שמורות.">&copy; 2025 Becky Fuhrmann. All rights reserved.</span>
+  </footer>
+
+  <script>
+    // ===== LANGUAGE SWITCHING =====
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      const root = document.documentElement;
+
+      // Update direction and fonts
+      if (lang === 'he') {
+        root.setAttribute('dir', 'rtl');
+        root.setAttribute('lang', 'he');
+      } else {
+        root.setAttribute('dir', 'ltr');
+        root.setAttribute('lang', 'en');
+      }
+
+      // Toggle button states
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Swap all text content
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text !== null) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = text;
+          } else {
+            el.innerHTML = text;
+          }
+        }
+      });
+    }
+
+    // ===== SCROLL REVEAL =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+
+    // ===== SMOOTH SCROLL INDICATOR HIDE =====
+    window.addEventListener('scroll', () => {
+      const indicator = document.querySelector('.scroll-indicator');
+      if (indicator) {
+        indicator.style.opacity = Math.max(0, 1 - window.scrollY / 300);
+      }
+    });
+  </script>
+</body>
+</html>
