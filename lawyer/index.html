@@ -1,101 +1,202 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Becky Fuhrmann | Attorney at Law — עו״ד בקי פורמן</title>
-  <meta name="description" content="Becky Fuhrmann — Commercial Law, Corporate Law & Data Privacy. Israel-based attorney providing legal counsel to companies and institutions.">
+  <title>עו״ד בקי פורמן | משפט מסחרי, תאגידי והגנת פרטיות</title>
+  <meta name="description" content="עו״ד בקי פורמן — ייעוץ משפטי מסחרי ותאגידי, הגנת פרטיות ו-DPO. ליווי חברות, תאגידים ומוסדות עם פתרונות מעשיים ומותאמים לעסק שלך.">
+  <meta name="keywords" content="עורכת דין מסחרי, משפט תאגידי, הגנת פרטיות, DPO, ייעוץ משפטי, חוזים מסחריים, GDPR, ישראל">
+  <meta property="og:title" content="עו״ד בקי פורמן | משפט מסחרי, תאגידי והגנת פרטיות">
+  <meta property="og:description" content="ליווי משפטי מסחרי לחברות ומוסדות. מומחיות בעסקאות, חוזים והגנת פרטיות.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
-    /* ===== RESET & FOUNDATIONS ===== */
+    /* ===== RESET ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --color-ink: #1a1a2e;
-      --color-ink-light: #4a4a5a;
-      --color-ink-muted: #8a8a9a;
-      --color-surface: #fefefe;
-      --color-surface-warm: #faf9f7;
-      --color-surface-alt: #f3f1ee;
-      --color-accent: #8b6914;
-      --color-accent-light: #c49b2a;
-      --color-accent-subtle: rgba(139, 105, 20, 0.08);
-      --color-border: rgba(26, 26, 46, 0.08);
-      --color-border-strong: rgba(26, 26, 46, 0.15);
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
-      --font-hebrew: 'Heebo', 'Inter', sans-serif;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --ink: #16213e;
+      --ink-light: #3d4f6f;
+      --ink-muted: #7d8aa6;
+      --surface: #fcfcfa;
+      --surface-warm: #f7f6f3;
+      --surface-cream: #f0eee9;
+      --accent: #8b6f3a;
+      --accent-hover: #a68544;
+      --accent-subtle: rgba(139, 111, 58, 0.07);
+      --accent-glow: rgba(139, 111, 58, 0.12);
+      --border: rgba(22, 33, 62, 0.07);
+      --border-strong: rgba(22, 33, 62, 0.13);
+      --white: #ffffff;
+      --font-he: 'Heebo', -apple-system, sans-serif;
+      --font-en: 'Inter', -apple-system, sans-serif;
+      --font-display-en: 'Playfair Display', Georgia, serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
     }
 
     html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
-      font-family: var(--font-body);
-      color: var(--color-ink);
-      background: var(--color-surface);
-      line-height: 1.7;
+      font-family: var(--font-he);
+      color: var(--ink);
+      background: var(--surface);
+      line-height: 1.75;
+      word-spacing: 0.03em;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
-    /* ===== LANGUAGE TOGGLE ===== */
-    .lang-toggle {
+    /* English mode overrides */
+    [lang="en"] body,
+    [lang="en"] { font-family: var(--font-en); word-spacing: normal; }
+    [lang="en"] .hero-headline,
+    [lang="en"] .section-title,
+    [lang="en"] .service-title,
+    [lang="en"] .about-name,
+    [lang="en"] .process-title,
+    [lang="en"] .cred-degree { font-family: var(--font-display-en); font-weight: 400; }
+    [lang="en"] .section-label { letter-spacing: 0.2em; }
+    [lang="en"] .hero-badge { letter-spacing: 0.15em; }
+    [lang="en"] .nav-link { letter-spacing: 0.08em; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
       position: fixed;
-      top: 28px;
-      right: 32px;
-      z-index: 1000;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 40px;
+      height: 72px;
       display: flex;
       align-items: center;
-      gap: 0;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--color-border);
-      border-radius: 100px;
-      padding: 4px;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-      transition: box-shadow 0.3s var(--ease-out);
+      justify-content: space-between;
+      background: rgba(252, 252, 250, 0.9);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid transparent;
+      transition: all 0.4s var(--ease);
     }
 
-    .lang-toggle:hover { box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+    .navbar.scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.04);
+    }
 
-    .lang-btn {
-      border: none;
-      background: transparent;
-      padding: 8px 18px;
-      font-family: var(--font-body);
-      font-size: 0.8rem;
+    .wordmark {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wordmark-icon {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .wordmark-text span {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-size: 0.82rem;
       font-weight: 500;
-      letter-spacing: 0.05em;
-      color: var(--color-ink-muted);
+      color: var(--ink-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s var(--ease);
+    }
+
+    .nav-link:hover { color: var(--ink); background: var(--accent-subtle); }
+
+    .lang-switch {
+      border: none;
+      background: var(--accent-subtle);
+      padding: 6px 14px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
       cursor: pointer;
-      border-radius: 100px;
-      transition: all 0.3s var(--ease-out);
-      text-transform: uppercase;
+      border-radius: 6px;
+      transition: all 0.3s var(--ease);
+      margin-inline-start: 8px;
     }
 
-    .lang-btn.active {
-      background: var(--color-ink);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.2);
+    .lang-switch:hover { background: var(--accent-glow); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--ink);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 8px;
+      transition: all 0.3s var(--ease);
+      margin-inline-start: 8px;
     }
 
-    .lang-btn:hover:not(.active) { color: var(--color-ink); }
+    .nav-cta:hover { background: #1e2d52; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(22,33,62,0.2); }
+
+    /* Mobile menu */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all 0.3s var(--ease);
+    }
 
     /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 120px 24px 80px;
+      padding: 120px 40px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -103,169 +204,249 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -40%;
-      right: -20%;
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(139, 105, 20, 0.04) 0%, transparent 70%);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(139, 111, 58, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(22, 33, 62, 0.03) 0%, transparent 50%);
       pointer-events: none;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -15%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(139, 105, 20, 0.03) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-ornament {
-      width: 48px;
-      height: 1px;
-      background: var(--color-accent);
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeSlideUp 0.8s var(--ease-out) 0.2s forwards;
-    }
-
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeSlideUp 0.8s var(--ease-out) 0.35s forwards;
-    }
-
-    .hero-title {
-      font-size: clamp(0.85rem, 1.5vw, 1rem);
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeSlideUp 0.8s var(--ease-out) 0.5s forwards;
-    }
-
-    .hero-divider {
-      display: flex;
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
-      opacity: 0;
-      animation: fadeSlideUp 0.8s var(--ease-out) 0.6s forwards;
+      position: relative;
     }
 
-    .hero-divider span {
-      width: 6px;
-      height: 6px;
-      border: 1px solid var(--color-accent);
-      transform: rotate(45deg);
-    }
+    .hero-content { z-index: 1; }
 
-    .hero-divider::before, .hero-divider::after {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: var(--color-border-strong);
-    }
-
-    .hero-summary {
-      max-width: 640px;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--color-ink-light);
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeSlideUp 0.8s var(--ease-out) 0.7s forwards;
-    }
-
-    .hero-contact {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 48px;
-      opacity: 0;
-      animation: fadeSlideUp 0.8s var(--ease-out) 0.85s forwards;
-    }
-
-    .hero-contact a {
-      display: flex;
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      text-decoration: none;
-      color: var(--color-ink-light);
-      font-size: 0.9rem;
-      font-weight: 400;
-      transition: color 0.3s var(--ease-out);
+      background: var(--accent-subtle);
+      border: 1px solid rgba(139, 111, 58, 0.12);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.1s forwards;
     }
 
-    .hero-contact a:hover { color: var(--color-accent); }
+    .hero-badge svg { width: 14px; height: 14px; }
 
-    .hero-contact svg {
+    .hero-headline {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.25s forwards;
+    }
+
+    .hero-headline .accent { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--ink-light);
+      font-weight: 400;
+      max-width: 560px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.4s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.55s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      box-shadow: 0 4px 20px rgba(139, 111, 58, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(139, 111, 58, 0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 16px 28px;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-subtle);
+    }
+
+    .btn-secondary svg, .btn-primary svg {
       width: 16px;
       height: 16px;
       stroke: currentColor;
       fill: none;
-      stroke-width: 1.5;
+      stroke-width: 2;
     }
 
-    .scroll-indicator {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
+    /* Photo placeholder */
+    .hero-photo {
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.5s forwards;
+    }
+
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--surface-warm) 0%, var(--surface-cream) 100%);
+      border-radius: 20px;
+      border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
-      opacity: 0;
-      animation: fadeIn 1s var(--ease-out) 1.2s forwards;
-    }
-
-    .scroll-indicator span {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-ink-muted);
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 32px;
-      background: var(--color-border-strong);
+      justify-content: center;
+      gap: 12px;
       position: relative;
       overflow: hidden;
     }
 
-    .scroll-line::after {
+    .photo-frame svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--ink-muted);
+      fill: none;
+      stroke-width: 1;
+      opacity: 0.4;
+    }
+
+    .photo-frame span {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      opacity: 0.5;
+    }
+
+    .photo-accent {
+      position: absolute;
+      bottom: -12px;
+      inset-inline-start: -12px;
+      width: 120px;
+      height: 120px;
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    .photo-dots {
+      position: absolute;
+      top: -20px;
+      inset-inline-end: -20px;
+      width: 80px;
+      height: 80px;
+      background-image: radial-gradient(var(--accent) 1.5px, transparent 1.5px);
+      background-size: 12px 12px;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    /* ===== TRUST STRIP ===== */
+    .trust-strip {
+      background: var(--ink);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trust-strip::before {
       content: '';
       position: absolute;
-      top: -100%;
-      width: 100%;
-      height: 100%;
-      background: var(--color-accent);
-      animation: scrollPulse 2s var(--ease-in-out) infinite;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
-    /* ===== SECTIONS ===== */
-    section {
-      padding: 100px 24px;
-    }
-
-    .section-alt { background: var(--color-surface-warm); }
-
-    .container {
-      max-width: 960px;
+    .trust-grid {
+      max-width: 1000px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
     }
+
+    .trust-item { opacity: 0; animation: fadeUp 0.6s var(--ease) forwards; }
+    .trust-item:nth-child(1) { animation-delay: 0.1s; }
+    .trust-item:nth-child(2) { animation-delay: 0.2s; }
+    .trust-item:nth-child(3) { animation-delay: 0.3s; }
+    .trust-item:nth-child(4) { animation-delay: 0.4s; }
+
+    .trust-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .trust-number .accent-num { color: var(--accent-hover); }
+
+    .trust-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    section { padding: 100px 40px; }
+    .section-alt { background: var(--surface-warm); }
+
+    .container { max-width: 1100px; margin: 0 auto; }
 
     .section-header {
       text-align: center;
@@ -273,226 +454,189 @@
     }
 
     .section-label {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 16px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
     }
 
     .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-      font-weight: 400;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
       line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--ink-light);
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
     }
 
     .section-line {
       width: 40px;
-      height: 1px;
-      background: var(--color-accent);
-      margin: 24px auto 0;
+      height: 2px;
+      background: var(--accent);
+      margin: 20px auto 0;
+      border-radius: 1px;
     }
 
-    /* ===== PRACTICE AREAS ===== */
-    .practice-grid {
+    /* ===== SERVICES ===== */
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--color-border);
-      border: 1px solid var(--color-border);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 16px;
+      padding: 40px 32px;
+      transition: all 0.4s var(--ease);
+      position: relative;
       overflow: hidden;
     }
 
-    .practice-card {
-      background: var(--color-surface);
-      padding: 48px 32px;
-      text-align: center;
-      transition: all 0.5s var(--ease-out);
-      position: relative;
-    }
-
-    .practice-card::after {
+    .service-card::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background: var(--color-accent);
-      transition: width 0.5s var(--ease-out);
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.4s var(--ease);
     }
 
-    .practice-card:hover { background: var(--color-accent-subtle); }
-    .practice-card:hover::after { width: 60px; }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+      border-color: rgba(139, 111, 58, 0.15);
+    }
 
-    .practice-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 24px;
-      stroke: var(--color-accent);
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--accent-subtle);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
       fill: none;
-      stroke-width: 1.2;
+      stroke-width: 1.5;
     }
 
-    .practice-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-
-    .practice-card p {
-      font-size: 0.88rem;
-      color: var(--color-ink-light);
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* ===== EXPERIENCE TIMELINE ===== */
-    .timeline {
-      position: relative;
-      padding-left: 48px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px;
-      top: 8px;
-      bottom: 8px;
-      width: 1px;
-      background: var(--color-border-strong);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 48px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s var(--ease-out);
-    }
-
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -44px;
-      top: 8px;
-      width: 9px;
-      height: 9px;
-      border: 2px solid var(--color-accent);
-      border-radius: 50%;
-      background: var(--color-surface);
-      z-index: 1;
-    }
-
-    .section-alt .timeline-item::before {
-      background: var(--color-surface-warm);
-    }
-
-    .timeline-item:last-child { margin-bottom: 0; }
-
-    .timeline-date {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 4px;
-    }
-
-    .timeline-role {
-      font-family: var(--font-display);
+    .service-title {
       font-size: 1.2rem;
-      font-weight: 500;
-      margin-bottom: 2px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
 
-    .timeline-company {
+    .service-desc {
       font-size: 0.9rem;
-      color: var(--color-ink-muted);
-      margin-bottom: 16px;
+      color: var(--ink-light);
+      line-height: 1.8;
+      margin-bottom: 20px;
       font-weight: 400;
     }
 
-    .timeline-details {
+    .service-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
 
-    .timeline-details li {
-      font-size: 0.9rem;
-      color: var(--color-ink-light);
-      line-height: 1.7;
-      font-weight: 300;
-      padding-left: 16px;
-      position: relative;
+    .service-list li {
+      font-size: 0.84rem;
+      color: var(--ink-light);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.6;
     }
 
-    .timeline-details li::before {
+    .service-list li::before {
       content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 4px;
-      height: 1px;
-      background: var(--color-accent);
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 8px;
     }
 
-    /* ===== DPO HIGHLIGHT ===== */
-    .dpo-highlight {
-      margin-top: 64px;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 48px;
+    /* ===== DPO BANNER ===== */
+    .dpo-banner {
+      background: linear-gradient(135deg, var(--ink) 0%, #1e2d52 100%);
+      padding: 80px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    .section-alt .dpo-highlight { background: #fff; }
-
-    .dpo-highlight::before {
+    .dpo-banner::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5l-8 3v7c0 6 8 10 8 10s8-4 8-10V8l-8-3z' fill='none' stroke='rgba(139,111,58,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+      pointer-events: none;
     }
 
-    .dpo-badge {
-      display: inline-flex;
+    .dpo-container { max-width: 800px; margin: 0 auto; position: relative; }
+
+    .dpo-shield {
+      width: 64px;
+      height: 64px;
+      background: rgba(139, 111, 58, 0.15);
+      border: 1px solid rgba(139, 111, 58, 0.3);
+      border-radius: 16px;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: var(--color-accent-subtle);
-      padding: 8px 20px;
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 20px;
+      justify-content: center;
+      margin: 0 auto 24px;
     }
 
-    .dpo-highlight h3 {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 24px;
+    .dpo-shield svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--accent-hover);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .dpo-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .dpo-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .dpo-orgs {
@@ -503,160 +647,381 @@
     }
 
     .dpo-org {
-      padding: 12px 24px;
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 400;
-      color: var(--color-ink-light);
-      transition: all 0.3s var(--ease-out);
+      padding: 14px 28px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s var(--ease);
     }
 
     .dpo-org:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
+      background: rgba(139, 111, 58, 0.15);
+      border-color: rgba(139, 111, 58, 0.3);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(139, 105, 20, 0.1);
     }
 
-    /* ===== EDUCATION ===== */
-    .edu-grid {
+    /* ===== ABOUT ===== */
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
 
-    .edu-card {
-      padding: 32px;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      background: var(--color-surface);
-      transition: all 0.4s var(--ease-out);
-      position: relative;
-      overflow: hidden;
+    .about-name {
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
     }
 
-    .edu-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 0;
-      background: var(--color-accent);
-      transition: height 0.4s var(--ease-out);
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      line-height: 1.9;
+      margin-bottom: 16px;
     }
 
-    .edu-card:hover::before { height: 100%; }
-    .edu-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
-
-    .edu-year {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--color-accent);
-      margin-bottom: 8px;
+    .about-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    .edu-degree {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
+    .about-cred {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--accent-subtle);
+      border-radius: 8px;
+      font-size: 0.82rem;
       font-weight: 500;
+      color: var(--accent);
+    }
+
+    .about-cred svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Credentials grid */
+    .cred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .cred-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--white);
+      transition: all 0.3s var(--ease);
+    }
+
+    .cred-card:hover { border-color: rgba(139, 111, 58, 0.2); box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+
+    .cred-year {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
       margin-bottom: 4px;
     }
 
-    .edu-school {
-      font-size: 0.85rem;
-      color: var(--color-ink-muted);
-      font-weight: 400;
+    .cred-degree {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      line-height: 1.4;
     }
 
-    .edu-note {
-      display: inline-block;
-      margin-top: 8px;
-      font-size: 0.78rem;
-      color: var(--color-accent);
+    .cred-school {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    .cred-note {
+      font-size: 0.75rem;
+      color: var(--accent);
       font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* ===== PROCESS ===== */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: var(--border-strong);
+      z-index: 0;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-num {
+      width: 56px;
+      height: 56px;
+      background: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 auto 20px;
+    }
+
+    .process-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .process-desc {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+      max-width: 280px;
+      margin: 0 auto;
     }
 
     /* ===== CONTACT ===== */
     .contact-section {
-      background: var(--color-ink);
-      color: #fff;
-      text-align: center;
+      background: var(--surface-warm);
     }
 
-    .contact-section .section-label { color: var(--color-accent-light); }
-    .contact-section .section-title { color: #fff; }
-    .contact-section .section-line { background: var(--color-accent-light); }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
 
-    .contact-grid {
+    .contact-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .contact-methods {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 48px;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .contact-item {
+    .contact-method {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
-      color: rgba(255,255,255,0.8);
+      color: var(--ink);
       font-size: 0.95rem;
-      transition: all 0.3s var(--ease-out);
-      padding: 16px 28px;
-      border: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 20px;
+      border: 1px solid var(--border);
       border-radius: 12px;
+      background: var(--white);
+      transition: all 0.3s var(--ease);
     }
 
-    .contact-item:hover {
-      color: #fff;
-      border-color: var(--color-accent-light);
-      background: rgba(255,255,255,0.04);
-      transform: translateY(-2px);
+    .contact-method:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      transform: translateX(-4px);
     }
 
-    .contact-item svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--color-accent-light);
+    [dir="ltr"] .contact-method:hover { transform: translateX(4px); }
+
+    .contact-method svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
       fill: none;
       stroke-width: 1.5;
+      flex-shrink: 0;
+    }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+    }
+
+    .form-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: var(--surface);
+      transition: all 0.3s var(--ease);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-subtle);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237d8aa6' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: left 12px center;
+      padding-inline-start: 16px;
+    }
+
+    [dir="ltr"] .form-group select {
+      background-position: right 12px center;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 20px rgba(139, 111, 58, 0.25);
+    }
+
+    .form-disclaimer {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-top: 12px;
+      line-height: 1.6;
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: var(--color-ink);
+      background: var(--ink);
+      padding: 40px 40px 24px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy { font-size: 0.8rem; }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 20px auto 0;
+      padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 24px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
       text-align: center;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
+      line-height: 1.6;
     }
 
     /* ===== ANIMATIONS ===== */
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(24px); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes scrollPulse {
-      0% { top: -100%; }
-      50% { top: 100%; }
-      100% { top: 100%; }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.7s var(--ease-out);
+      transform: translateY(24px);
+      transition: all 0.7s var(--ease);
     }
 
     .reveal.visible {
@@ -664,268 +1029,298 @@
       transform: translateY(0);
     }
 
-    /* ===== HEBREW MODE ===== */
-    [dir="rtl"] {
-      font-family: var(--font-hebrew);
+    /* Staggered reveals */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s var(--ease);
     }
 
-    [dir="rtl"] .hero-name {
-      font-family: var(--font-hebrew);
-      font-weight: 700;
-    }
-
-    [dir="rtl"] .hero-title {
-      letter-spacing: 0.05em;
-    }
-
-    [dir="rtl"] .section-title,
-    [dir="rtl"] .practice-card h3,
-    [dir="rtl"] .timeline-role,
-    [dir="rtl"] .dpo-highlight h3,
-    [dir="rtl"] .edu-degree {
-      font-family: var(--font-hebrew);
-      font-weight: 600;
-    }
-
-    [dir="rtl"] .timeline {
-      padding-left: 0;
-      padding-right: 48px;
-    }
-
-    [dir="rtl"] .timeline::before {
-      left: auto;
-      right: 8px;
-    }
-
-    [dir="rtl"] .timeline-item::before {
-      left: auto;
-      right: -44px;
-    }
-
-    [dir="rtl"] .timeline-details li {
-      padding-left: 0;
-      padding-right: 16px;
-    }
-
-    [dir="rtl"] .timeline-details li::before {
-      left: auto;
-      right: 0;
-    }
-
-    [dir="rtl"] .lang-toggle {
-      right: auto;
-      left: 32px;
-    }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: none; }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 300px; gap: 48px; }
+      .about-grid { gap: 48px; }
+    }
+
     @media (max-width: 768px) {
-      .practice-grid {
-        grid-template-columns: 1fr;
+      .navbar { padding: 0 20px; height: 64px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 20px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       }
+      .nav-links.open .nav-cta { text-align: center; justify-content: center; }
+      .mobile-toggle { display: flex; }
 
       .hero { padding: 100px 20px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-photo { max-width: 280px; margin: 0 auto; }
+
+      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
       section { padding: 72px 20px; }
 
-      .dpo-highlight { padding: 32px 20px; }
+      .services-grid { grid-template-columns: 1fr; }
 
-      .hero-contact { gap: 16px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .cred-grid { grid-template-columns: 1fr 1fr; }
 
-      .contact-grid { flex-direction: column; align-items: center; }
+      .process-grid { grid-template-columns: 1fr; gap: 32px; }
+      .process-grid::before { display: none; }
 
-      .lang-toggle {
-        top: 16px;
-        right: 16px;
-      }
-
-      [dir="rtl"] .lang-toggle {
-        right: auto;
-        left: 16px;
-      }
-
-      .edu-grid {
-        grid-template-columns: 1fr;
-      }
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-form { padding: 28px; }
+      .form-row { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      .hero-contact {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .lang-btn { padding: 6px 14px; font-size: 0.75rem; }
+      .hero-headline { font-size: 1.9rem; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .cred-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .dpo-orgs { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Language Toggle -->
-  <div class="lang-toggle" role="navigation" aria-label="Language">
-    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" data-lang="he" onclick="setLang('he')">עב</button>
-  </div>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <a href="#top" class="wordmark">
+      <div class="wordmark-icon" data-en="BF" data-he="בפ">בפ</div>
+      <div class="wordmark-text" data-en="Becky <span>Fuhrmann</span>" data-he="בקי <span>פורמן</span>">בקי <span>פורמן</span></div>
+    </a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#services" class="nav-link" data-en="Services" data-he="שירותים">שירותים</a></li>
+      <li><a href="#about" class="nav-link" data-en="About" data-he="אודות">אודות</a></li>
+      <li><a href="#process" class="nav-link" data-en="How It Works" data-he="איך זה עובד">איך זה עובד</a></li>
+      <li>
+        <button class="lang-switch" onclick="toggleLang()">EN</button>
+      </li>
+      <li>
+        <a href="#contact" class="nav-cta" data-en="Schedule a Consultation" data-he="לפגישת ייעוץ">לפגישת ייעוץ</a>
+      </li>
+    </ul>
+  </nav>
 
   <!-- ===== HERO ===== -->
   <header class="hero" id="top">
-    <div class="hero-ornament"></div>
-    <h1 class="hero-name" data-en="Becky Fuhrmann" data-he="בקי פורמן">Becky Fuhrmann</h1>
-    <p class="hero-title" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</p>
-    <div class="hero-divider"><span></span></div>
-    <p class="hero-summary" data-en="Commercial lawyer providing ongoing legal counsel to companies, corporations, and institutions. Specializing in commercial transactions, contract negotiations, and data privacy — with a focus on practical, business-oriented solutions." data-he="עורכת דין מסחרית המלווה חברות, תאגידים ומוסדות באופן שוטף. מתמחה בעסקאות מסחריות, ניהול משא ומתן חוזי ודיני פרטיות מידע — עם דגש על פתרונות מעשיים ועסקיים.">Commercial lawyer providing ongoing legal counsel to companies, corporations, and institutions. Specializing in commercial transactions, contract negotiations, and data privacy — with a focus on practical, business-oriented solutions.</p>
-    <div class="hero-contact">
-      <a href="tel:+972507726286">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        +972-50-772-6286
-      </a>
-      <a href="mailto:beckyfx3@gmail.com">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        beckyfx3@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-    </div>
-    <div class="scroll-indicator">
-      <span data-en="Scroll" data-he="גלול">Scroll</span>
-      <div class="scroll-line"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span data-en="DPO for the Technion & Leading Institutions" data-he="ממונה הגנת מידע בטכניון ומוסדות מובילים">ממונה הגנת מידע בטכניון ומוסדות מובילים</span>
+        </div>
+        <h1 class="hero-headline" data-en="Legal counsel that<br>understands <span class='accent'>your business</span>" data-he="ליווי משפטי שמבין<br>את <span class='accent'>העסק שלך</span>">ליווי משפטי שמבין<br>את <span class="accent">העסק שלך</span></h1>
+        <p class="hero-sub" data-en="Commercial and corporate law, contract negotiations, cross-border transactions, and data privacy — practical, business-oriented legal solutions tailored to your needs." data-he="משפט מסחרי ותאגידי, ניהול משא ומתן חוזי, עסקאות בינלאומיות והגנת פרטיות — פתרונות משפטיים מעשיים ומותאמים לצרכי העסק שלך.">משפט מסחרי ותאגידי, ניהול משא ומתן חוזי, עסקאות בינלאומיות והגנת פרטיות — פתרונות משפטיים מעשיים ומותאמים לצרכי העסק שלך.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary" data-en="Schedule a Free Consultation" data-he="לתיאום פגישת ייעוץ">
+            <span data-en="Schedule a Free Consultation" data-he="לתיאום פגישת ייעוץ">לתיאום פגישת ייעוץ</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="tel:+972507726286" class="btn-secondary">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            050-772-6286
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span data-en="Photo" data-he="תמונה">תמונה</span>
+        </div>
+        <div class="photo-accent"></div>
+        <div class="photo-dots"></div>
+      </div>
     </div>
   </header>
 
-  <!-- ===== PRACTICE AREAS ===== -->
-  <section id="practice">
+  <!-- ===== TRUST STRIP ===== -->
+  <div class="trust-strip">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-number" data-en="7<span class='accent-num'>+</span>" data-he="7<span class='accent-num'>+</span>">7<span class="accent-num">+</span></div>
+        <div class="trust-desc" data-en="Years of legal experience" data-he="שנות ניסיון משפטי">שנות ניסיון משפטי</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">3</div>
+        <div class="trust-desc" data-en="Organizations served as DPO" data-he="ארגונים בתפקיד DPO">ארגונים בתפקיד DPO</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number" data-en="LL.M" data-he="LL.M">LL.M</div>
+        <div class="trust-desc" data-en="With honors, University of Haifa" data-he="בהצטיינות, אוניברסיטת חיפה">בהצטיינות, אוניברסיטת חיפה</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">98</div>
+        <div class="trust-desc" data-en="DPO Certification score" data-he="ציון הסמכת DPO">ציון הסמכת DPO</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label" data-en="Areas of Practice" data-he="תחומי התמחות">Areas of Practice</p>
-        <h2 class="section-title" data-en="Focused Expertise" data-he="מומחיות ממוקדת">Focused Expertise</h2>
-        <div class="section-line"></div>
+        <span class="section-label" data-en="Services" data-he="שירותים">שירותים</span>
+        <h2 class="section-title" data-en="How I Can Help Your Business" data-he="איך אני יכולה לעזור לעסק שלך">איך אני יכולה לעזור לעסק שלך</h2>
+        <p class="section-subtitle" data-en="Comprehensive legal services for companies looking for a personal, senior-level legal partner." data-he="שירותים משפטיים מקיפים לחברות שמחפשות שותפה משפטית בכירה ואישית.">שירותים משפטיים מקיפים לחברות שמחפשות שותפה משפטית בכירה ואישית.</p>
       </div>
-      <div class="practice-grid reveal">
-        <div class="practice-card">
-          <svg class="practice-icon" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M6 18h36"/><circle cx="14" cy="14" r="1.5"/><circle cx="20" cy="14" r="1.5"/><path d="M14 26h20M14 32h14"/></svg>
-          <h3 data-en="Commercial Law" data-he="משפט מסחרי">Commercial Law</h3>
-          <p data-en="Complex commercial agreements, cross-border transactions, distribution, acquisition, and cooperation contracts." data-he="הסכמים מסחריים מורכבים, עסקאות חוצות גבולות, הפצה, רכישה והסכמי שיתוף פעולה.">Complex commercial agreements, cross-border transactions, distribution, acquisition, and cooperation contracts.</p>
+      <div class="services-grid reveal-stagger">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="service-title" data-en="Commercial Law" data-he="משפט מסחרי">משפט מסחרי</h3>
+          <p class="service-desc" data-en="Negotiating and drafting complex agreements that protect your interests and drive business forward." data-he="ניהול משא ומתן ועריכת הסכמים מורכבים שמגנים על האינטרסים שלך ומקדמים את העסק.">ניהול משא ומתן ועריכת הסכמים מורכבים שמגנים על האינטרסים שלך ומקדמים את העסק.</p>
+          <ul class="service-list">
+            <li data-en="Cooperation & distribution agreements" data-he="הסכמי שיתוף פעולה והפצה">הסכמי שיתוף פעולה והפצה</li>
+            <li data-en="Acquisition & NDA contracts" data-he="חוזי רכישה וסודיות (NDA)">חוזי רכישה וסודיות (NDA)</li>
+            <li data-en="Cross-border transactions" data-he="עסקאות חוצות גבולות">עסקאות חוצות גבולות</li>
+            <li data-en="Ongoing commercial counsel" data-he="ליווי מסחרי שוטף">ליווי מסחרי שוטף</li>
+          </ul>
         </div>
-        <div class="practice-card">
-          <svg class="practice-icon" viewBox="0 0 48 48"><path d="M24 6L6 16v2h36v-2L24 6z"/><rect x="10" y="22" width="4" height="14"/><rect x="22" y="22" width="4" height="14"/><rect x="34" y="22" width="4" height="14"/><path d="M4 40h40M4 36h40"/></svg>
-          <h3 data-en="Corporate Law" data-he="משפט תאגידי">Corporate Law</h3>
-          <p data-en="Ongoing legal counsel for corporations and institutions, governance, regulatory compliance, and business operations." data-he="ייעוץ משפטי שוטף לתאגידים ומוסדות, ממשל תאגידי, ציות רגולטורי וניהול פעילות עסקית.">Ongoing legal counsel for corporations and institutions, governance, regulatory compliance, and business operations.</p>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <h3 class="service-title" data-en="Corporate Law" data-he="משפט תאגידי">משפט תאגידי</h3>
+          <p class="service-desc" data-en="Strategic legal guidance for companies navigating governance, regulation, and business decisions." data-he="ליווי משפטי אסטרטגי לחברות בתחומי ממשל תאגידי, רגולציה והחלטות עסקיות.">ליווי משפטי אסטרטגי לחברות בתחומי ממשל תאגידי, רגולציה והחלטות עסקיות.</p>
+          <ul class="service-list">
+            <li data-en="Corporate governance advisory" data-he="ייעוץ ממשל תאגידי">ייעוץ ממשל תאגידי</li>
+            <li data-en="Regulatory compliance" data-he="ציות רגולטורי">ציות רגולטורי</li>
+            <li data-en="Legal risk management" data-he="ניהול סיכונים משפטיים">ניהול סיכונים משפטיים</li>
+            <li data-en="Ongoing institutional counsel" data-he="ליווי משפטי שוטף למוסדות">ליווי משפטי שוטף למוסדות</li>
+          </ul>
         </div>
-        <div class="practice-card">
-          <svg class="practice-icon" viewBox="0 0 48 48"><rect x="12" y="6" width="24" height="36" rx="4"/><circle cx="24" cy="24" r="7"/><path d="M21 24l2 2 4-4"/><circle cx="24" cy="37" r="1.5"/></svg>
-          <h3 data-en="Data Privacy" data-he="פרטיות מידע">Data Privacy</h3>
-          <p data-en="GDPR & Israeli privacy compliance, DPO services, database mapping, policy drafting, and regulatory liaison." data-he="ציות ל-GDPR ודיני הגנת הפרטיות הישראליים, שירותי DPO, מיפוי מאגרי מידע, עריכת מדיניות וקשר עם הרגולטור.">GDPR & Israeli privacy compliance, DPO services, database mapping, policy drafting, and regulatory liaison.</p>
-        </div>
-      </div>
-
-      <!-- DPO Highlight -->
-      <div class="dpo-highlight reveal">
-        <div class="dpo-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span data-en="Data Protection Officer" data-he="ממונה על הגנת מידע">Data Protection Officer</span>
-        </div>
-        <h3 data-en="Serving as external DPO for leading Israeli institutions" data-he="משמשת כממונה חיצונית על הגנת מידע עבור מוסדות מובילים בישראל">Serving as external DPO for leading Israeli institutions</h3>
-        <div class="dpo-orgs">
-          <div class="dpo-org" data-en="Technion — Israel Institute of Technology" data-he="הטכניון — מכון טכנולוגי לישראל">Technion — Israel Institute of Technology</div>
-          <div class="dpo-org" data-en="National School of Engineers at Technion" data-he="בית הספר הלאומי למהנדסים בטכניון">National School of Engineers at Technion</div>
-          <div class="dpo-org" data-en="Technological College Nof HaGalil" data-he="המכללה הטכנולוגית נוף הגליל">Technological College Nof HaGalil</div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="service-title" data-en="Data Privacy & Protection" data-he="הגנת פרטיות ומידע">הגנת פרטיות ומידע</h3>
+          <p class="service-desc" data-en="End-to-end privacy compliance and DPO services to keep your organization protected and compliant." data-he="ציות לדיני פרטיות מקצה לקצה ושירותי DPO לשמירה על הארגון שלך מוגן ותואם רגולציה.">ציות לדיני פרטיות מקצה לקצה ושירותי DPO לשמירה על הארגון שלך מוגן ותואם רגולציה.</p>
+          <ul class="service-list">
+            <li data-en="GDPR & Israeli privacy compliance" data-he="ציות ל-GDPR ולחוק הגנת הפרטיות">ציות ל-GDPR ולחוק הגנת הפרטיות</li>
+            <li data-en="Database mapping & policy drafting" data-he="מיפוי מאגרי מידע ועריכת מדיניות">מיפוי מאגרי מידע ועריכת מדיניות</li>
+            <li data-en="DSAR handling & regulator liaison" data-he="טיפול בבקשות נושאי מידע וקשר עם הרגולטור">טיפול בבקשות נושאי מידע וקשר עם הרגולטור</li>
+            <li data-en="External DPO services" data-he="שירותי DPO חיצוני">שירותי DPO חיצוני</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== EXPERIENCE ===== -->
-  <section class="section-alt" id="experience">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label" data-en="Experience" data-he="ניסיון מקצועי">Experience</p>
-        <h2 class="section-title" data-en="Professional Journey" data-he="מסלול מקצועי">Professional Journey</h2>
-        <div class="section-line"></div>
+  <!-- ===== DPO BANNER ===== -->
+  <div class="dpo-banner">
+    <div class="dpo-container reveal">
+      <div class="dpo-shield">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">2024 – <span data-en="Present" data-he="היום">Present</span></div>
-          <div class="timeline-role" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</div>
-          <div class="timeline-company" data-en="Ben Ari Fish & Co., Law Offices — Tel Aviv" data-he="בן ארי פיש ושות׳, משרד עורכי דין — תל אביב">Ben Ari Fish & Co., Law Offices — Tel Aviv</div>
-          <ul class="timeline-details">
-            <li data-en="Legal counsel to companies and institutions on commercial law, corporate law, privacy, and regulatory matters." data-he="ייעוץ משפטי לחברות ומוסדות בתחומי המשפט המסחרי, התאגידי, הפרטיות והרגולציה.">Legal counsel to companies and institutions on commercial law, corporate law, privacy, and regulatory matters.</li>
-            <li data-en="Lead negotiations and draft complex commercial agreements including international contracts." data-he="הובלת משא ומתן ועריכת הסכמים מסחריים מורכבים, לרבות חוזים בינלאומיים.">Lead negotiations and draft complex commercial agreements including international contracts.</li>
-            <li data-en="Advise on privacy and data protection: compliance processes, database mapping, policy drafting, and DSAR handling." data-he="ייעוץ בתחום הפרטיות והגנת המידע: תהליכי ציות, מיפוי מאגרי מידע, עריכת מדיניות וטיפול בבקשות נושאי מידע.">Advise on privacy and data protection: compliance processes, database mapping, policy drafting, and DSAR handling.</li>
-            <li data-en="External DPO for the Technion and two additional major institutions." data-he="ממונה חיצונית על הגנת מידע בטכניון ובשני מוסדות מובילים נוספים.">External DPO for the Technion and two additional major institutions.</li>
-          </ul>
+      <h2 class="dpo-title" data-en="Trusted as Data Protection Officer by Israel's leading institutions" data-he="נבחרה כממונה על הגנת מידע במוסדות המובילים בישראל">נבחרה כממונה על הגנת מידע במוסדות המובילים בישראל</h2>
+      <p class="dpo-sub" data-en="Serving as external DPO — managing data protection strategy, compliance, and regulatory relationships." data-he="משמשת כממונה חיצונית על הגנת מידע — ניהול אסטרטגיית הגנת מידע, ציות וקשרי רגולציה.">משמשת כממונה חיצונית על הגנת מידע — ניהול אסטרטגיית הגנת מידע, ציות וקשרי רגולציה.</p>
+      <div class="dpo-orgs">
+        <div class="dpo-org" data-en="Technion — Israel Institute of Technology" data-he="הטכניון — מכון טכנולוגי לישראל">הטכניון — מכון טכנולוגי לישראל</div>
+        <div class="dpo-org" data-en="National School of Engineers at Technion" data-he="בית הספר הלאומי למהנדסים בטכניון">בית הספר הלאומי למהנדסים בטכניון</div>
+        <div class="dpo-org" data-en="Technological College Nof HaGalil" data-he="המכללה הטכנולוגית נוף הגליל">המכללה הטכנולוגית נוף הגליל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section-alt" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="section-label" data-en="About" data-he="אודות">אודות</span>
+          <h2 class="about-name" data-en="Becky Fuhrmann, Adv." data-he="עו״ד בקי פורמן">עו״ד בקי פורמן</h2>
+          <p class="about-text" data-en="I provide ongoing legal counsel to companies, corporations, and institutions — combining deep expertise in commercial and corporate law with a practical, business-first approach. My clients value a legal partner who understands their business context, not just the legal framework." data-he="אני מלווה חברות, תאגידים ומוסדות בייעוץ משפטי שוטף — תוך שילוב מומחיות עמוקה במשפט מסחרי ותאגידי עם גישה מעשית ועסקית. הלקוחות שלי מעריכים שותפה משפטית שמבינה את ההקשר העסקי, ולא רק את המסגרת המשפטית.">אני מלווה חברות, תאגידים ומוסדות בייעוץ משפטי שוטף — תוך שילוב מומחיות עמוקה במשפט מסחרי ותאגידי עם גישה מעשית ועסקית. הלקוחות שלי מעריכים שותפה משפטית שמבינה את ההקשר העסקי, ולא רק את המסגרת המשפטית.</p>
+          <p class="about-text" data-en="With extensive experience in data privacy law and a DPO certification with a near-perfect score, I bring a unique combination of commercial and privacy expertise that is essential in today's regulatory landscape." data-he="עם ניסיון רחב בדיני פרטיות מידע והסמכת DPO עם ציון כמעט מושלם, אני מביאה שילוב ייחודי של מומחיות מסחרית ופרטיות — שילוב חיוני בנוף הרגולטורי של ימינו.">עם ניסיון רחב בדיני פרטיות מידע והסמכת DPO עם ציון כמעט מושלם, אני מביאה שילוב ייחודי של מומחיות מסחרית ופרטיות — שילוב חיוני בנוף הרגולטורי של ימינו.</p>
+          <div class="about-creds">
+            <div class="about-cred">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span data-en="Israel Bar (2019)" data-he="לשכת עורכי הדין (2019)">לשכת עורכי הדין (2019)</span>
+            </div>
+            <div class="about-cred">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span data-en="Certified DPO (2025)" data-he="הסמכת DPO (2025)">הסמכת DPO (2025)</span>
+            </div>
+            <div class="about-cred">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span data-en="Board Directors Course" data-he="קורס דירקטורים">קורס דירקטורים</span>
+            </div>
+          </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2022 – 2023</div>
-          <div class="timeline-role" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</div>
-          <div class="timeline-company" data-en="Balter Guth Aloni & Co. — Tel Aviv" data-he="בלטר גוט אלוני ושות׳ — תל אביב">Balter Guth Aloni & Co. — Tel Aviv</div>
-          <ul class="timeline-details">
-            <li data-en="Ongoing legal counsel to corporate clients on commercial, corporate, and regulatory matters." data-he="ייעוץ משפטי שוטף ללקוחות תאגידיים בתחומי המסחרי, התאגידי והרגולציה.">Ongoing legal counsel to corporate clients on commercial, corporate, and regulatory matters.</li>
-            <li data-en="Drafted, negotiated, and managed complex commercial agreements." data-he="עריכה, ניהול משא ומתן וניהול הסכמים מסחריים מורכבים.">Drafted, negotiated, and managed complex commercial agreements.</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2021 – 2022</div>
-          <div class="timeline-role" data-en="Research Assistant" data-he="עוזרת מחקר">Research Assistant</div>
-          <div class="timeline-company" data-en="University of Haifa, Faculty of Law" data-he="אוניברסיטת חיפה, הפקולטה למשפטים">University of Haifa, Faculty of Law</div>
-          <ul class="timeline-details">
-            <li data-en="Developed a full academic course including curriculum design, syllabus, and lesson plans." data-he="פיתוח קורס אקדמי מלא, כולל תוכנית לימודים, סילבוס ותכניות שיעור.">Developed a full academic course including curriculum design, syllabus, and lesson plans.</li>
-            <li data-en="Conducted in-depth legal research: case law analysis, legislation review, and academic literature." data-he="ביצוע מחקר משפטי מעמיק: ניתוח פסיקה, סקירת חקיקה וספרות אקדמית.">Conducted in-depth legal research: case law analysis, legislation review, and academic literature.</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2020 – 2021</div>
-          <div class="timeline-role" data-en="Attorney at Law" data-he="עורכת דין">Attorney at Law</div>
-          <div class="timeline-company" data-en="Levi Barda Hazan, Law Offices" data-he="לוי ברדה חזן, משרד עורכי דין">Levi Barda Hazan, Law Offices</div>
-          <ul class="timeline-details">
-            <li data-en="Managed commercial transactions and litigation; provided ongoing legal counsel." data-he="ניהול עסקאות מסחריות והליכים משפטיים; ייעוץ משפטי שוטף.">Managed commercial transactions and litigation; provided ongoing legal counsel.</li>
-            <li data-en="Drafted pleadings and legal documents; advised clients on complex legal matters." data-he="עריכת כתבי בי־דין ומסמכים משפטיים; ייעוץ ללקוחות בסוגיות משפטיות מורכבות.">Drafted pleadings and legal documents; advised clients on complex legal matters.</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2018 – 2019</div>
-          <div class="timeline-role" data-en="Legal Intern" data-he="מתמחה">Legal Intern</div>
-          <div class="timeline-company" data-en="Shlomo Cohen & Co., Litigation Department" data-he="שלמה כהן ושות׳, מחלקת ליטיגציה">Shlomo Cohen & Co., Litigation Department</div>
+        <div class="cred-grid reveal-stagger">
+          <div class="cred-card">
+            <div class="cred-year">2025</div>
+            <div class="cred-degree" data-en="DPO Certification" data-he="הסמכת DPO">הסמכת DPO</div>
+            <div class="cred-school" data-en="Technion — Privacy Protection Authority" data-he="הטכניון — הרשות להגנת הפרטיות">הטכניון — הרשות להגנת הפרטיות</div>
+            <div class="cred-note" data-en="Grade: 98" data-he="ציון: 98">ציון: 98</div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-year">2024</div>
+            <div class="cred-degree" data-en="Board Directors Course" data-he="קורס דירקטורים">קורס דירקטורים</div>
+            <div class="cred-school" data-en="Israel Bar Association" data-he="לשכת עורכי הדין">לשכת עורכי הדין</div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-year">2022</div>
+            <div class="cred-degree" data-en="LL.M" data-he="תואר שני במשפטים">תואר שני במשפטים</div>
+            <div class="cred-school" data-en="University of Haifa" data-he="אוניברסיטת חיפה">אוניברסיטת חיפה</div>
+            <div class="cred-note" data-en="With Honors" data-he="בהצטיינות">בהצטיינות</div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-year">2018</div>
+            <div class="cred-degree" data-en="LL.B" data-he="תואר ראשון במשפטים">תואר ראשון במשפטים</div>
+            <div class="cred-school" data-en="Bar-Ilan University" data-he="אוניברסיטת בר-אילן">אוניברסיטת בר-אילן</div>
+            <div class="cred-note" data-en="With Honors" data-he="בהצטיינות">בהצטיינות</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== EDUCATION ===== -->
-  <section id="education">
+  <!-- ===== PROCESS ===== -->
+  <section id="process">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label" data-en="Education & Certifications" data-he="השכלה והסמכות">Education & Certifications</p>
-        <h2 class="section-title" data-en="Academic Background" data-he="רקע אקדמי">Academic Background</h2>
-        <div class="section-line"></div>
+        <span class="section-label" data-en="How It Works" data-he="איך זה עובד">איך זה עובד</span>
+        <h2 class="section-title" data-en="Simple. Transparent. Effective." data-he="פשוט. שקוף. אפקטיבי.">פשוט. שקוף. אפקטיבי.</h2>
       </div>
-      <div class="edu-grid reveal">
-        <div class="edu-card">
-          <div class="edu-year">2025</div>
-          <div class="edu-degree" data-en="DPO Certification" data-he="הסמכת DPO">DPO Certification</div>
-          <div class="edu-school" data-en="Technion — Israel Privacy Protection Authority" data-he="הטכניון — הרשות להגנת הפרטיות">Technion — Israel Privacy Protection Authority</div>
-          <div class="edu-note" data-en="Grade: 98" data-he="ציון: 98">Grade: 98</div>
+      <div class="process-grid reveal-stagger">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <h3 class="process-title" data-en="Initial Consultation" data-he="פגישת היכרות">פגישת היכרות</h3>
+          <p class="process-desc" data-en="We meet to understand your business, challenges, and legal needs — at no obligation." data-he="נפגש כדי להבין את העסק שלך, האתגרים והצרכים המשפטיים — ללא התחייבות.">נפגש כדי להבין את העסק שלך, האתגרים והצרכים המשפטיים — ללא התחייבות.</p>
         </div>
-        <div class="edu-card">
-          <div class="edu-year">2024</div>
-          <div class="edu-degree" data-en="Board Directors Course" data-he="קורס דירקטורים">Board Directors Course</div>
-          <div class="edu-school" data-en="Israel Bar Association" data-he="לשכת עורכי הדין">Israel Bar Association</div>
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <h3 class="process-title" data-en="Tailored Strategy" data-he="תוכנית מותאמת">תוכנית מותאמת</h3>
+          <p class="process-desc" data-en="I build a clear legal strategy with a transparent scope and pricing — no surprises." data-he="אבנה תוכנית משפטית ברורה עם היקף ותמחור שקופים — ללא הפתעות.">אבנה תוכנית משפטית ברורה עם היקף ותמחור שקופים — ללא הפתעות.</p>
         </div>
-        <div class="edu-card">
-          <div class="edu-year">2022</div>
-          <div class="edu-degree" data-en="LL.M" data-he="תואר שני במשפטים (LL.M)">LL.M</div>
-          <div class="edu-school" data-en="University of Haifa" data-he="אוניברסיטת חיפה">University of Haifa</div>
-          <div class="edu-note" data-en="With Honors" data-he="בהצטיינות">With Honors</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-year">2019</div>
-          <div class="edu-degree" data-en="Licensed Attorney" data-he="רישיון עריכת דין">Licensed Attorney</div>
-          <div class="edu-school" data-en="Israel Bar Association" data-he="לשכת עורכי הדין">Israel Bar Association</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-year">2018</div>
-          <div class="edu-degree" data-en="LL.B" data-he="תואר ראשון במשפטים (LL.B)">LL.B</div>
-          <div class="edu-school" data-en="Bar-Ilan University" data-he="אוניברסיטת בר-אילן">Bar-Ilan University</div>
-          <div class="edu-note" data-en="With Honors" data-he="בהצטיינות">With Honors</div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <h3 class="process-title" data-en="Ongoing Partnership" data-he="שותפות מתמשכת">שותפות מתמשכת</h3>
+          <p class="process-desc" data-en="I become your dedicated legal partner — available, responsive, and always aligned with your goals." data-he="אהפוך לשותפה המשפטית הקבועה שלך — זמינה, מגיבה ותמיד מותאמת ליעדים שלך.">אהפוך לשותפה המשפטית הקבועה שלך — זמינה, מגיבה ותמיד מותאמת ליעדים שלך.</p>
         </div>
       </div>
     </div>
@@ -935,84 +1330,168 @@
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label" data-en="Get in Touch" data-he="יצירת קשר">Get in Touch</p>
-        <h2 class="section-title" data-en="Let's Work Together" data-he="בואו נעבוד יחד">Let's Work Together</h2>
-        <div class="section-line"></div>
+        <span class="section-label" data-en="Contact" data-he="יצירת קשר">יצירת קשר</span>
+        <h2 class="section-title" data-en="Let's Discuss Your Needs" data-he="בואו נדבר על הצרכים שלך">בואו נדבר על הצרכים שלך</h2>
+        <p class="section-subtitle" data-en="Leave your details and I'll get back to you within 24 hours." data-he="השאירו פרטים ואחזור אליכם תוך 24 שעות.">השאירו פרטים ואחזור אליכם תוך 24 שעות.</p>
       </div>
-      <div class="contact-grid reveal">
-        <a href="tel:+972507726286" class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +972-50-772-6286
-        </a>
-        <a href="mailto:beckyfx3@gmail.com" class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          beckyfx3@gmail.com
-        </a>
-        <a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener" class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <h3 data-en="Prefer a direct conversation?" data-he="מעדיפים שיחה ישירה?">מעדיפים שיחה ישירה?</h3>
+          <p data-en="Feel free to reach out directly by phone, email, or LinkedIn. I'm always happy to hear about new challenges." data-he="אתם מוזמנים לפנות ישירות בטלפון, אימייל או LinkedIn. תמיד שמחה לשמוע על אתגרים חדשים.">אתם מוזמנים לפנות ישירות בטלפון, אימייל או LinkedIn. תמיד שמחה לשמוע על אתגרים חדשים.</p>
+          <div class="contact-methods">
+            <a href="tel:+972507726286" class="contact-method">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              050-772-6286
+            </a>
+            <a href="mailto:beckyfx3@gmail.com" class="contact-method">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              beckyfx3@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener" class="contact-method">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <h3 class="form-title" data-en="Send an Inquiry" data-he="השאירו פרטים">השאירו פרטים</h3>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label data-en="Full Name" data-he="שם מלא">שם מלא</label>
+                <input type="text" name="name" required data-en="Your name" data-he="השם שלך" placeholder="השם שלך">
+              </div>
+              <div class="form-group">
+                <label data-en="Phone" data-he="טלפון">טלפון</label>
+                <input type="tel" name="phone" required data-en="Phone number" data-he="מספר טלפון" placeholder="מספר טלפון">
+              </div>
+            </div>
+            <div class="form-group">
+              <label data-en="Email" data-he="אימייל">אימייל</label>
+              <input type="email" name="email" required data-en="Email address" data-he="כתובת אימייל" placeholder="כתובת אימייל">
+            </div>
+            <div class="form-group">
+              <label data-en="Area of Interest" data-he="תחום עניין">תחום עניין</label>
+              <select name="area">
+                <option value="" data-en="Select a topic" data-he="בחרו נושא">בחרו נושא</option>
+                <option value="commercial" data-en="Commercial Law" data-he="משפט מסחרי">משפט מסחרי</option>
+                <option value="corporate" data-en="Corporate Law" data-he="משפט תאגידי">משפט תאגידי</option>
+                <option value="privacy" data-en="Data Privacy & DPO" data-he="פרטיות מידע ו-DPO">פרטיות מידע ו-DPO</option>
+                <option value="other" data-en="Other" data-he="אחר">אחר</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-en="How can I help?" data-he="איך אוכל לעזור?">איך אוכל לעזור?</label>
+              <textarea name="message" rows="4" data-en="Brief description of your needs..." data-he="תיאור קצר של הצרכים שלך..." placeholder="תיאור קצר של הצרכים שלך..."></textarea>
+            </div>
+            <button type="submit" class="form-submit" data-en="Send Inquiry" data-he="שליחה">שליחה</button>
+            <p class="form-disclaimer" data-en="Your information is kept confidential. Do not include sensitive details — we'll discuss those in a secure setting." data-he="הפרטים שלך נשמרים בסודיות מלאה. אנא אל תכללו מידע רגיש — נדון בכך במסגרת מאובטחת.">הפרטים שלך נשמרים בסודיות מלאה. אנא אל תכללו מידע רגיש — נדון בכך במסגרת מאובטחת.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <span data-en="&copy; 2025 Becky Fuhrmann. All rights reserved." data-he="&copy; 2025 בקי פורמן. כל הזכויות שמורות.">&copy; 2025 Becky Fuhrmann. All rights reserved.</span>
+    <div class="footer-inner">
+      <div class="footer-copy" data-en="&copy; 2025 Becky Fuhrmann, Adv. All rights reserved." data-he="&copy; 2025 עו״ד בקי פורמן. כל הזכויות שמורות.">&copy; 2025 עו״ד בקי פורמן. כל הזכויות שמורות.</div>
+      <ul class="footer-links">
+        <li><a href="tel:+972507726286">050-772-6286</a></li>
+        <li><a href="mailto:beckyfx3@gmail.com">beckyfx3@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom" data-en="The information on this site does not constitute legal advice. For legal counsel tailored to your needs, please get in touch." data-he="המידע באתר זה אינו מהווה ייעוץ משפטי. לייעוץ משפטי המותאם לצרכים שלך, אנא צרו קשר.">המידע באתר זה אינו מהווה ייעוץ משפטי. לייעוץ משפטי המותאם לצרכים שלך, אנא צרו קשר.</div>
   </footer>
 
   <script>
-    // ===== LANGUAGE SWITCHING =====
-    let currentLang = 'en';
+    // ===== LANGUAGE =====
+    let currentLang = 'he';
+
+    function toggleLang() {
+      setLang(currentLang === 'he' ? 'en' : 'he');
+    }
 
     function setLang(lang) {
       currentLang = lang;
       const root = document.documentElement;
+      const btn = document.querySelector('.lang-switch');
 
-      // Update direction and fonts
-      if (lang === 'he') {
-        root.setAttribute('dir', 'rtl');
-        root.setAttribute('lang', 'he');
-      } else {
-        root.setAttribute('dir', 'ltr');
-        root.setAttribute('lang', 'en');
-      }
+      root.setAttribute('lang', lang);
+      root.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+      btn.textContent = lang === 'he' ? 'EN' : 'עב';
 
-      // Toggle button states
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
-
-      // Swap all text content
       document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-        const text = el.getAttribute('data-' + lang);
-        if (text !== null) {
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = text;
-          } else {
-            el.innerHTML = text;
-          }
+        const val = el.getAttribute('data-' + lang);
+        if (val === null) return;
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
+        } else if (el.tagName === 'OPTION') {
+          el.textContent = val;
+        } else {
+          el.innerHTML = val;
         }
       });
     }
 
-    // ===== SCROLL REVEAL =====
-    const observer = new IntersectionObserver((entries) => {
+    // ===== NAVBAR SCROLL =====
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ===== REVEAL ON SCROLL =====
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-    document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
 
-    // ===== SMOOTH SCROLL INDICATOR HIDE =====
-    window.addEventListener('scroll', () => {
-      const indicator = document.querySelector('.scroll-indicator');
-      if (indicator) {
-        indicator.style.opacity = Math.max(0, 1 - window.scrollY / 300);
-      }
+    // ===== TRUST STRIP COUNTER =====
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.trust-item').forEach(el => counterObserver.observe(el));
+
+    // ===== SMOOTH SCROLL for nav links =====
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close mobile menu
+          document.querySelector('.nav-links')?.classList.remove('open');
+        }
+      });
     });
+
+    // ===== FORM HANDLER =====
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      const origText = btn.textContent;
+      btn.textContent = currentLang === 'he' ? 'נשלח בהצלחה!' : 'Sent successfully!';
+      btn.style.background = '#2d8a4e';
+      setTimeout(() => {
+        btn.textContent = origText;
+        btn.style.background = '';
+        form.reset();
+      }, 3000);
+    }
   </script>
 </body>
 </html>
