@@ -4,951 +4,249 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>עו״ד בקי פורמן | משפט מסחרי, תאגידי והגנת פרטיות</title>
-  <meta name="description" content="עו״ד בקי פורמן — ייעוץ משפטי מסחרי ותאגידי, הגנת פרטיות ו-DPO. ליווי חברות, תאגידים ומוסדות עם פתרונות מעשיים ומותאמים לעסק שלך.">
-  <meta name="keywords" content="עורכת דין מסחרי, משפט תאגידי, הגנת פרטיות, DPO, ייעוץ משפטי, חוזים מסחריים, GDPR, ישראל">
+  <meta name="description" content="עו״ד בקי פורמן — ייעוץ משפטי מסחרי, תאגידי והגנת פרטיות לחברות וארגונים. ליווי אישי, מקצועי ומדויק.">
+  <meta name="keywords" content="עורכת דין מסחרי, דיני תאגידים, הגנת פרטיות, DPO, GDPR, ישראל">
+  <link rel="alternate" hreflang="en" href="en/index.html">
+  <link rel="alternate" hreflang="he" href="index.html">
   <meta property="og:title" content="עו״ד בקי פורמן | משפט מסחרי, תאגידי והגנת פרטיות">
-  <meta property="og:description" content="ליווי משפטי מסחרי לחברות ומוסדות. מומחיות בעסקאות, חוזים והגנת פרטיות.">
+  <meta property="og:description" content="ייעוץ משפטי מסחרי, תאגידי והגנת פרטיות. ליווי אישי ומקצועי לחברות וארגונים.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Heebo:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* ===== RESET ===== */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --ink: #16213e;
-      --ink-light: #3d4f6f;
-      --ink-muted: #7d8aa6;
-      --surface: #fcfcfa;
-      --surface-warm: #f7f6f3;
-      --surface-cream: #f0eee9;
-      --accent: #8b6f3a;
-      --accent-hover: #a68544;
-      --accent-subtle: rgba(139, 111, 58, 0.07);
-      --accent-glow: rgba(139, 111, 58, 0.12);
-      --border: rgba(22, 33, 62, 0.07);
-      --border-strong: rgba(22, 33, 62, 0.13);
-      --white: #ffffff;
-      --font-he: 'Heebo', -apple-system, sans-serif;
-      --font-en: 'Inter', -apple-system, sans-serif;
-      --font-display-en: 'Playfair Display', Georgia, serif;
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: var(--font-he);
-      color: var(--ink);
-      background: var(--surface);
-      line-height: 1.75;
-      word-spacing: 0.03em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    /* ===== ENGLISH MODE ===== */
-    [lang="en"] body, [lang="en"] { font-family: var(--font-en); word-spacing: normal; line-height: 1.7; }
-    [lang="en"] .hero-headline,
-    [lang="en"] .section-title,
-    [lang="en"] .service-title,
-    [lang="en"] .about-name,
-    [lang="en"] .process-title,
-    [lang="en"] .why-title { font-family: var(--font-display-en); font-weight: 400; }
-    [lang="en"] .section-label { letter-spacing: 0.2em; }
-    [lang="en"] .hero-badge { letter-spacing: 0.12em; }
-    [lang="en"] .nav-link { letter-spacing: 0.06em; }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 0 40px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(252, 252, 250, 0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid transparent;
-      transition: all 0.4s var(--ease);
-    }
-
-    .navbar.scrolled { border-bottom-color: var(--border); box-shadow: 0 1px 20px rgba(0,0,0,0.04); }
-
-    .wordmark {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--ink);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .wordmark-icon {
-      width: 28px; height: 28px;
-      border: 2px solid var(--accent);
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.7rem; font-weight: 800; color: var(--accent);
-    }
-
-    .wordmark-text span { color: var(--accent); font-weight: 800; }
-
-    .nav-links {
-      display: flex; align-items: center; gap: 6px; list-style: none;
-    }
-
-    .nav-link {
-      text-decoration: none; font-size: 0.82rem; font-weight: 500;
-      color: var(--ink-muted); padding: 8px 14px; border-radius: 8px;
-      transition: all 0.3s var(--ease);
-    }
-
-    .nav-link:hover { color: var(--ink); background: var(--accent-subtle); }
-
-    .lang-switch {
-      border: none; background: var(--accent-subtle); padding: 6px 14px;
-      font-family: inherit; font-size: 0.78rem; font-weight: 600;
-      color: var(--accent); cursor: pointer; border-radius: 6px;
-      transition: all 0.3s var(--ease); margin-inline-start: 4px;
-    }
-
-    .lang-switch:hover { background: var(--accent-glow); }
-
-    .nav-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--ink); color: var(--white); text-decoration: none;
-      font-size: 0.82rem; font-weight: 500; padding: 10px 22px;
-      border-radius: 8px; transition: all 0.3s var(--ease); margin-inline-start: 6px;
-    }
-
-    .nav-cta:hover { background: #1e2d52; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(22,33,62,0.2); }
-
-    .mobile-toggle {
-      display: none; background: none; border: none; width: 32px; height: 32px;
-      cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-    }
-
-    .mobile-toggle span { display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s var(--ease); }
-
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 120px 40px 80px;
-      position: relative; overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(139, 111, 58, 0.04) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(22, 33, 62, 0.03) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      max-width: 1200px; margin: 0 auto; width: 100%;
-      display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: center;
-      position: relative;
-    }
-
-    .hero-content { z-index: 1; }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent-subtle); border: 1px solid rgba(139, 111, 58, 0.12);
-      padding: 8px 18px; border-radius: 100px;
-      font-size: 0.78rem; font-weight: 600; color: var(--accent);
-      margin-bottom: 28px;
-      opacity: 0; animation: fadeUp 0.7s var(--ease) 0.1s forwards;
-    }
-
-    .hero-badge svg { width: 14px; height: 14px; }
-
-    .hero-headline {
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      font-weight: 800; line-height: 1.25;
-      margin-bottom: 24px;
-      opacity: 0; animation: fadeUp 0.7s var(--ease) 0.25s forwards;
-    }
-
-    .hero-headline .accent { color: var(--accent); }
-
-    .hero-sub {
-      font-size: 1.08rem; line-height: 1.9; color: var(--ink-light);
-      font-weight: 400; max-width: 560px; margin-bottom: 40px;
-      opacity: 0; animation: fadeUp 0.7s var(--ease) 0.4s forwards;
-    }
-
-    .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
-      opacity: 0; animation: fadeUp 0.7s var(--ease) 0.55s forwards;
-    }
-
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: var(--white); text-decoration: none;
-      font-family: inherit; font-size: 0.95rem; font-weight: 600;
-      padding: 16px 36px; border-radius: 12px; border: none; cursor: pointer;
-      transition: all 0.3s var(--ease); box-shadow: 0 4px 20px rgba(139, 111, 58, 0.25);
-    }
-
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139, 111, 58, 0.3); }
-
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--ink); text-decoration: none;
-      font-family: inherit; font-size: 0.95rem; font-weight: 500;
-      padding: 16px 28px; border-radius: 12px;
-      border: 1px solid var(--border-strong); cursor: pointer;
-      transition: all 0.3s var(--ease);
-    }
-
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
-    .btn-secondary svg, .btn-primary svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
-
-    /* Photo placeholder */
-    .hero-photo {
-      position: relative;
-      opacity: 0; animation: fadeUp 0.7s var(--ease) 0.5s forwards;
-    }
-
-    .photo-frame {
-      width: 100%; aspect-ratio: 3/4;
-      background: linear-gradient(135deg, var(--surface-warm) 0%, var(--surface-cream) 100%);
-      border-radius: 20px; border: 1px solid var(--border);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-      position: relative; overflow: hidden;
-    }
-
-    .photo-frame svg { width: 48px; height: 48px; stroke: var(--ink-muted); fill: none; stroke-width: 1; opacity: 0.4; }
-    .photo-frame span { font-size: 0.78rem; color: var(--ink-muted); opacity: 0.5; }
-
-    .photo-accent {
-      position: absolute; bottom: -12px; inset-inline-start: -12px;
-      width: 120px; height: 120px; border: 2px solid var(--accent);
-      border-radius: 16px; opacity: 0.15; z-index: -1;
-    }
-
-    .photo-dots {
-      position: absolute; top: -20px; inset-inline-end: -20px;
-      width: 80px; height: 80px;
-      background-image: radial-gradient(var(--accent) 1.5px, transparent 1.5px);
-      background-size: 12px 12px; opacity: 0.15; z-index: -1;
-    }
-
-    /* ===== TRUST STRIP ===== */
-    .trust-strip {
-      background: var(--ink); padding: 48px 40px;
-      position: relative; overflow: hidden;
-    }
-
-    .trust-strip::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-
-    .trust-grid {
-      max-width: 900px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center;
-    }
-
-    .trust-number { font-size: 2.2rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 8px; }
-    .trust-number .accent-num { color: var(--accent-hover); }
-    .trust-desc { font-size: 0.82rem; color: rgba(255,255,255,0.55); font-weight: 400; line-height: 1.5; }
-
-    /* ===== SECTIONS COMMON ===== */
-    section { padding: 100px 40px; }
-    .section-alt { background: var(--surface-warm); }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-header { text-align: center; margin-bottom: 64px; }
-    .section-label { font-size: 0.78rem; font-weight: 600; color: var(--accent); margin-bottom: 12px; display: block; }
-    .section-title { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
-    .section-subtitle { font-size: 1rem; color: var(--ink-light); font-weight: 400; max-width: 600px; margin: 0 auto; line-height: 1.8; }
-    .section-line { width: 40px; height: 2px; background: var(--accent); margin: 20px auto 0; border-radius: 1px; }
-
-    /* ===== SERVICES ===== */
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-
-    .service-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 16px; padding: 40px 32px;
-      transition: all 0.4s var(--ease); position: relative; overflow: hidden;
-    }
-
-    .service-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 3px; background: var(--accent);
-      transform: scaleX(0); transition: transform 0.4s var(--ease);
-    }
-
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.06); border-color: rgba(139, 111, 58, 0.15); }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-icon {
-      width: 52px; height: 52px; background: var(--accent-subtle);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px;
-    }
-
-    .service-icon svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
-    .service-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
-    .service-desc { font-size: 0.9rem; color: var(--ink-light); line-height: 1.8; margin-bottom: 20px; }
-
-    .service-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-
-    .service-list li {
-      font-size: 0.84rem; color: var(--ink-light);
-      display: flex; align-items: flex-start; gap: 8px; line-height: 1.6;
-    }
-
-    .service-list li::before {
-      content: ''; width: 5px; height: 5px; background: var(--accent);
-      border-radius: 50%; flex-shrink: 0; margin-top: 8px;
-    }
-
-    /* ===== WHY ME ===== */
-    .why-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-    }
-
-    .why-card {
-      padding: 36px; border: 1px solid var(--border); border-radius: 14px;
-      background: var(--white); transition: all 0.3s var(--ease);
-    }
-
-    .why-card:hover { border-color: rgba(139, 111, 58, 0.15); box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
-
-    .why-icon {
-      width: 44px; height: 44px; background: var(--accent-subtle);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-    }
-
-    .why-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
-    .why-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
-    .why-desc { font-size: 0.88rem; color: var(--ink-light); line-height: 1.8; }
-
-    /* ===== ABOUT ===== */
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    }
-
-    .about-name { font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 700; margin-bottom: 20px; line-height: 1.3; }
-    .about-text { font-size: 0.95rem; color: var(--ink-light); line-height: 1.9; margin-bottom: 16px; }
-
-    .about-credentials {
-      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px;
-    }
-
-    .about-cred {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 18px; background: var(--accent-subtle);
-      border-radius: 8px; font-size: 0.82rem; font-weight: 500; color: var(--accent);
-    }
-
-    .about-cred svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-
-    /* About visual */
-    .about-visual {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    }
-
-    .about-stat {
-      padding: 28px; border: 1px solid var(--border); border-radius: 14px;
-      background: var(--white); text-align: center; transition: all 0.3s var(--ease);
-    }
-
-    .about-stat:hover { border-color: rgba(139, 111, 58, 0.15); box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
-    .about-stat-num { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
-    .about-stat-label { font-size: 0.8rem; color: var(--ink-muted); font-weight: 400; line-height: 1.4; }
-
-    /* ===== PROCESS ===== */
-    .process-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative;
-    }
-
-    .process-grid::before {
-      content: ''; position: absolute; top: 40px; left: 20%; right: 20%;
-      height: 1px; background: var(--border-strong); z-index: 0;
-    }
-
-    .process-step { text-align: center; position: relative; z-index: 1; }
-
-    .process-num {
-      width: 56px; height: 56px; background: var(--white);
-      border: 2px solid var(--accent); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; font-weight: 700; color: var(--accent);
-      margin: 0 auto 20px;
-    }
-
-    .process-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-    .process-desc { font-size: 0.88rem; color: var(--ink-light); line-height: 1.7; max-width: 280px; margin: 0 auto; }
-
-    /* ===== CONTACT ===== */
-    .contact-section { background: var(--surface-warm); }
-
-    .contact-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
-    }
-
-    .contact-info h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; }
-    .contact-info > p { font-size: 0.95rem; color: var(--ink-light); line-height: 1.8; margin-bottom: 32px; }
-
-    .contact-methods { display: flex; flex-direction: column; gap: 14px; }
-
-    .contact-method {
-      display: flex; align-items: center; gap: 14px;
-      text-decoration: none; color: var(--ink); font-size: 0.95rem;
-      padding: 16px 20px; border: 1px solid var(--border); border-radius: 12px;
-      background: var(--white); transition: all 0.3s var(--ease);
-    }
-
-    .contact-method:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.04); transform: translateX(-4px); }
-    [dir="ltr"] .contact-method:hover { transform: translateX(4px); }
-    .contact-method svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.5; flex-shrink: 0; }
-
-    .contact-form {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 20px; padding: 40px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.04);
-    }
-
-    .form-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 24px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 0.82rem; font-weight: 500; color: var(--ink-light); margin-bottom: 6px; }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%; padding: 12px 16px;
-      border: 1px solid var(--border-strong); border-radius: 10px;
-      font-family: inherit; font-size: 0.9rem; color: var(--ink);
-      background: var(--surface); transition: all 0.3s var(--ease); outline: none;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-subtle); }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-
-    .form-group select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237d8aa6' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: left 12px center;
-      padding-inline-start: 16px;
-    }
-
-    [dir="ltr"] .form-group select { background-position: right 12px center; }
-
-    .form-submit {
-      width: 100%; padding: 14px;
-      background: var(--accent); color: var(--white); border: none; border-radius: 10px;
-      font-family: inherit; font-size: 0.95rem; font-weight: 600;
-      cursor: pointer; transition: all 0.3s var(--ease); margin-top: 8px;
-    }
-
-    .form-submit:hover { background: var(--accent-hover); box-shadow: 0 4px 20px rgba(139, 111, 58, 0.25); }
-
-    .form-disclaimer { font-size: 0.72rem; color: var(--ink-muted); margin-top: 12px; line-height: 1.6; }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--ink); padding: 40px 40px 24px;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 16px;
-    }
-
-    .footer-copy { font-size: 0.8rem; }
-    .footer-links { display: flex; gap: 24px; list-style: none; }
-    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.8rem; transition: color 0.3s; }
-    .footer-links a:hover { color: rgba(255,255,255,0.7); }
-
-    .footer-bottom {
-      max-width: 1100px; margin: 20px auto 0; padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.72rem; color: rgba(255,255,255,0.25);
-      text-align: center; line-height: 1.6;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: all 0.7s var(--ease);
-    }
-
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    .reveal-stagger > * {
-      opacity: 0; transform: translateY(20px);
-      transition: all 0.6s var(--ease);
-    }
-
-    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: none; }
-    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: none; }
-    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: none; }
-    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: none; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .hero-inner { grid-template-columns: 1fr 280px; gap: 48px; }
-      .about-grid { gap: 48px; }
-    }
-
-    @media (max-width: 768px) {
-      .navbar { padding: 0 20px; height: 64px; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--white); border-bottom: 1px solid var(--border);
-        padding: 16px 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        gap: 8px;
-      }
-      .nav-links.open .nav-cta { text-align: center; justify-content: center; }
-      .mobile-toggle { display: flex; }
-
-      .hero { padding: 100px 20px 60px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-actions { justify-content: center; }
-      .hero-photo { max-width: 260px; margin: 0 auto; }
-
-      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-
-      section { padding: 72px 20px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-visual { grid-template-columns: 1fr 1fr; }
-
-      .process-grid { grid-template-columns: 1fr; gap: 32px; }
-      .process-grid::before { display: none; }
-
-      .contact-layout { grid-template-columns: 1fr; }
-      .contact-form { padding: 28px; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-headline { font-size: 1.8rem; }
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-visual { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; width: 100%; }
-      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-    }
+    .hero-content, .hero-image { opacity: 0; animation: fadeIn 0.8s ease forwards; }
+    .hero-image { animation-delay: 0.2s; }
+    @keyframes fadeIn { to { opacity: 1; } }
   </style>
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  <nav class="navbar" id="navbar">
-    <a href="#top" class="wordmark">
-      <div class="wordmark-icon" data-en="BF" data-he="בפ">בפ</div>
-      <div class="wordmark-text" data-en="Becky <span>Fuhrmann</span>" data-he="בקי <span>פורמן</span>">בקי <span>פורמן</span></div>
-    </a>
-    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="#services" class="nav-link" data-en="Services" data-he="שירותים">שירותים</a></li>
-      <li><a href="#why" class="nav-link" data-en="Why Choose Me" data-he="למה אני">למה אני</a></li>
-      <li><a href="#about" class="nav-link" data-en="About" data-he="אודות">אודות</a></li>
-      <li><a href="#process" class="nav-link" data-en="How It Works" data-he="תהליך העבודה">תהליך העבודה</a></li>
-      <li><button class="lang-switch" onclick="toggleLang()">EN</button></li>
-      <li><a href="#contact" class="nav-cta" data-en="Free Consultation" data-he="פגישת ייעוץ">פגישת ייעוץ</a></li>
-    </ul>
+  <nav class="navbar" role="navigation" aria-label="ניווט ראשי">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">עו״ד בקי פורמן</a>
+      <ul class="nav-links">
+        <li><a href="#services">תחומי פעילות</a></li>
+        <li><a href="he/about.html">אודות</a></li>
+        <li><a href="he/blog/index.html">תוכן מקצועי</a></li>
+        <li><a href="he/contact.html">צור קשר</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="en/index.html" class="lang-toggle" aria-label="Switch to English">
+          <span class="active">עב</span>
+          <span>EN</span>
+        </a>
+        <a href="he/contact.html" class="btn btn-primary btn-sm">פגישת היכרות</a>
+        <button class="hamburger" aria-label="תפריט" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
   </nav>
 
   <!-- ===== HERO ===== -->
-  <header class="hero" id="top">
+  <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <span data-en="Certified DPO &amp; Commercial Lawyer" data-he="עורכת דין מסחרית וממונה הגנת מידע מוסמכת">עורכת דין מסחרית וממונה הגנת מידע מוסמכת</span>
-        </div>
-        <h1 class="hero-headline" data-en="Legal counsel that<br>understands <span class='accent'>your business</span>" data-he="ליווי משפטי שמבין<br>את <span class='accent'>העסק שלך</span>">ליווי משפטי שמבין<br>את <span class="accent">העסק שלך</span></h1>
-        <p class="hero-sub" data-en="I help companies and organizations navigate commercial law, corporate governance, and data privacy — with practical, business-first solutions that protect your interests and drive growth." data-he="אני מלווה חברות וארגונים בתחומי המשפט המסחרי, הממשל התאגידי והגנת הפרטיות — עם פתרונות מעשיים שמגנים על האינטרסים שלך ומקדמים צמיחה.">אני מלווה חברות וארגונים בתחומי המשפט המסחרי, הממשל התאגידי והגנת הפרטיות — עם פתרונות מעשיים שמגנים על האינטרסים שלך ומקדמים צמיחה.</p>
+        <h1>המשפט המסחרי שלך.<br>ברור, מדויק, ואישי.</h1>
+        <p class="hero-subtitle">אני מלווה חברות וארגונים בתחומי המשפט המסחרי, התאגידי והגנת הפרטיות — עם דגש על פתרונות עסקיים מעשיים ויחס אישי ללא מתווכים.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary">
-            <span data-en="Schedule a Free Consultation" data-he="לתיאום פגישת ייעוץ">לתיאום פגישת ייעוץ</span>
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="tel:+972507726286" class="btn-secondary">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="he/contact.html" class="btn btn-primary btn-lg">לקביעת פגישת היכרות</a>
+          <a href="tel:050-772-6286" class="hero-phone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             050-772-6286
           </a>
         </div>
       </div>
-      <div class="hero-photo">
-        <div class="photo-frame">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span data-en="Photo" data-he="תמונה">תמונה</span>
-        </div>
-        <div class="photo-accent"></div>
-        <div class="photo-dots"></div>
+      <div class="hero-image">
+        <img src="images/becky-hero.jpg" alt="עו״ד בקי פורמן" onerror="this.style.background='var(--color-surface-alt)';this.style.minHeight='400px';this.style.borderRadius='var(--radius-lg)';">
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- ===== TRUST STRIP ===== -->
-  <div class="trust-strip">
-    <div class="trust-grid">
-      <div class="trust-item">
-        <div class="trust-number" data-en="7<span class='accent-num'>+</span>" data-he="7<span class='accent-num'>+</span>">7<span class="accent-num">+</span></div>
-        <div class="trust-desc" data-en="Years of legal experience" data-he="שנות ניסיון משפטי">שנות ניסיון משפטי</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-number" data-en="LL.M" data-he="LL.M">LL.M</div>
-        <div class="trust-desc" data-en="Master of Laws, with honors" data-he="תואר שני במשפטים, בהצטיינות">תואר שני במשפטים, בהצטיינות</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-number" data-en="DPO" data-he="DPO">DPO</div>
-        <div class="trust-desc" data-en="Certified Data Protection Officer" data-he="ממונה הגנת מידע מוסמכת">ממונה הגנת מידע מוסמכת</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-number">98</div>
-        <div class="trust-desc" data-en="DPO certification score" data-he="ציון הסמכת DPO">ציון הסמכת DPO</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SERVICES ===== -->
-  <section id="services">
+  <!-- ===== THREE PILLARS ===== -->
+  <section class="section section-alt" id="services">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label" data-en="Services" data-he="שירותים">שירותים</span>
-        <h2 class="section-title" data-en="How I Can Help Your Business" data-he="איך אני יכולה לעזור לעסק שלך">איך אני יכולה לעזור לעסק שלך</h2>
-        <p class="section-subtitle" data-en="Comprehensive legal services for companies looking for a personal, senior-level legal partner — without the overhead of a large firm." data-he="שירותים משפטיים מקיפים לחברות שמחפשות שותפה משפטית בכירה ואישית — ללא התקורה של משרד גדול.">שירותים משפטיים מקיפים לחברות שמחפשות שותפה משפטית בכירה ואישית — ללא התקורה של משרד גדול.</p>
+      <div class="section-header centered reveal">
+        <span class="label">תחומי התמחות</span>
+        <h2>מבנה. הגנה. צמיחה.</h2>
+        <p>שלושה תחומים משלימים שמכסים את כל הצרכים המשפטיים של העסק שלך</p>
       </div>
-      <div class="services-grid reveal-stagger">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <div class="grid-3 stagger">
+        <a href="he/commercial.html" class="card pillar-card reveal" style="text-decoration:none;color:inherit;">
+          <div class="card-icon" style="margin:0 auto var(--space-md);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
-          <h3 class="service-title" data-en="Commercial Law" data-he="משפט מסחרי">משפט מסחרי</h3>
-          <p class="service-desc" data-en="I negotiate and draft complex agreements that protect your interests and keep your business moving forward — in Israel and internationally." data-he="אני מנהלת משא ומתן ועורכת הסכמים מורכבים שמגנים על האינטרסים שלך ומקדמים את העסק — בישראל ובינלאומית.">אני מנהלת משא ומתן ועורכת הסכמים מורכבים שמגנים על האינטרסים שלך ומקדמים את העסק — בישראל ובינלאומית.</p>
-          <ul class="service-list">
-            <li data-en="Cooperation &amp; distribution agreements" data-he="הסכמי שיתוף פעולה והפצה">הסכמי שיתוף פעולה והפצה</li>
-            <li data-en="Acquisition, NDA &amp; licensing contracts" data-he="חוזי רכישה, סודיות (NDA) ורישוי">חוזי רכישה, סודיות (NDA) ורישוי</li>
-            <li data-en="Cross-border &amp; international transactions" data-he="עסקאות חוצות גבולות ובינלאומיות">עסקאות חוצות גבולות ובינלאומיות</li>
-            <li data-en="Ongoing commercial counsel" data-he="ליווי מסחרי שוטף">ליווי מסחרי שוטף</li>
-          </ul>
+          <div class="pillar-word">Grow · צמיחה</div>
+          <h3>משפט מסחרי</h3>
+          <p>חוזים, עסקאות, שותפויות ופעילות בינלאומית — ליווי משפטי שמאפשר לעסק שלך לגדול בביטחון.</p>
+          <span class="card-link">לפרטים נוספים ←</span>
+        </a>
+        <a href="he/corporate.html" class="card pillar-card reveal" style="text-decoration:none;color:inherit;">
+          <div class="card-icon" style="margin:0 auto var(--space-md);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div class="pillar-word">Structure · מבנה</div>
+          <h3>דיני תאגידים</h3>
+          <p>ממשל תאגידי, ציות רגולטורי וניהול סיכונים — בניית המסגרת המשפטית שמאפשרת לחברה לפעול נכון.</p>
+          <span class="card-link">לפרטים נוספים ←</span>
+        </a>
+        <a href="he/privacy.html" class="card pillar-card reveal" style="text-decoration:none;color:inherit;">
+          <div class="card-icon" style="margin:0 auto var(--space-md);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="pillar-word">Protect · הגנה</div>
+          <h3>הגנת פרטיות ו-DPO</h3>
+          <p>GDPR, מיפוי מאגרי מידע, טיפול בבקשות נושאי מידע ושירותי DPO חיצוני — הגנה מלאה על המידע של הארגון.</p>
+          <span class="card-link">לפרטים נוספים ←</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRIEF INTRO ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2 reveal" style="align-items:center;">
+        <div class="intro-block">
+          <span class="label">מי אני</span>
+          <h2>בקי פורמן, עו״ד</h2>
+          <p>עורכת דין עם למעלה מ-7 שנות ניסיון בתחומי המשפט המסחרי, התאגידי והגנת הפרטיות. אני מתמחה בליווי חברות וארגונים עם דגש על פתרונות מעשיים ויחס אישי ישיר — בלי מתווכים, בלי העברה לזוטרים.</p>
+          <p>השילוב הייחודי בין מומחיות מסחרית לפרטיות מאפשר לי לתת מענה כולל שרוב עורכי הדין לא יכולים להציע.</p>
+          <div class="credentials-inline">
+            <span class="credential-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              חברת לשכת עורכי הדין
+            </span>
+            <span class="credential-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              LL.M בהצטיינות
+            </span>
+            <span class="credential-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              DPO מוסמכת
+            </span>
+          </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-          </div>
-          <h3 class="service-title" data-en="Corporate Law" data-he="משפט תאגידי">משפט תאגידי</h3>
-          <p class="service-desc" data-en="Strategic legal guidance for companies and institutions navigating governance, compliance, and complex business decisions." data-he="ליווי משפטי אסטרטגי לחברות ומוסדות בתחומי ממשל תאגידי, ציות רגולטורי והחלטות עסקיות מורכבות.">ליווי משפטי אסטרטגי לחברות ומוסדות בתחומי ממשל תאגידי, ציות רגולטורי והחלטות עסקיות מורכבות.</p>
-          <ul class="service-list">
-            <li data-en="Corporate governance advisory" data-he="ייעוץ ממשל תאגידי">ייעוץ ממשל תאגידי</li>
-            <li data-en="Regulatory compliance" data-he="ציות רגולטורי">ציות רגולטורי</li>
-            <li data-en="Legal risk assessment &amp; management" data-he="הערכה וניהול סיכונים משפטיים">הערכה וניהול סיכונים משפטיים</li>
-            <li data-en="Ongoing counsel for organizations" data-he="ליווי משפטי שוטף לארגונים">ליווי משפטי שוטף לארגונים</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="service-title" data-en="Data Privacy &amp; DPO" data-he="הגנת פרטיות ו-DPO">הגנת פרטיות ו-DPO</h3>
-          <p class="service-desc" data-en="Full-service privacy compliance and external DPO services — keeping your organization protected in an increasingly regulated world." data-he="שירותי ציות לפרטיות מקצה לקצה ושירותי DPO חיצוני — לשמירה על הארגון שלך בעולם רגולטורי הולך ומתהדק.">שירותי ציות לפרטיות מקצה לקצה ושירותי DPO חיצוני — לשמירה על הארגון שלך בעולם רגולטורי הולך ומתהדק.</p>
-          <ul class="service-list">
-            <li data-en="GDPR &amp; Israeli privacy law compliance" data-he="ציות ל-GDPR ולחוק הגנת הפרטיות">ציות ל-GDPR ולחוק הגנת הפרטיות</li>
-            <li data-en="Database mapping &amp; policy drafting" data-he="מיפוי מאגרי מידע ועריכת מדיניות">מיפוי מאגרי מידע ועריכת מדיניות</li>
-            <li data-en="DSAR handling &amp; regulator liaison" data-he="טיפול בבקשות נושאי מידע וקשר עם רגולטורים">טיפול בבקשות נושאי מידע וקשר עם רגולטורים</li>
-            <li data-en="External DPO for organizations" data-he="שירותי DPO חיצוני לארגונים">שירותי DPO חיצוני לארגונים</li>
-          </ul>
+        <div style="text-align:center;">
+          <a href="he/about.html" class="btn btn-secondary">קראו עוד על הרקע שלי</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHY CHOOSE ME ===== -->
-  <section class="section-alt" id="why">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label" data-en="Why Choose Me" data-he="למה לעבוד איתי">למה לעבוד איתי</span>
-        <h2 class="section-title" data-en="The Advantages of a Dedicated Legal Partner" data-he="היתרונות של שותפה משפטית מסורה">היתרונות של שותפה משפטית מסורה</h2>
-      </div>
-      <div class="why-grid reveal-stagger">
-        <div class="why-card">
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <h3 class="why-title" data-en="Direct Access, Always" data-he="גישה ישירה, תמיד">גישה ישירה, תמיד</h3>
-          <p class="why-desc" data-en="You work directly with me — no juniors, no hand-offs. Your matter gets my full, personal attention from start to finish." data-he="את/ה עובד/ת ישירות מולי — ללא ג׳וניורים, ללא העברות. העניין שלך מקבל את תשומת הלב האישית והמלאה שלי מתחילה ועד סוף.">את/ה עובד/ת ישירות מולי — ללא ג׳וניורים, ללא העברות. העניין שלך מקבל את תשומת הלב האישית והמלאה שלי מתחילה ועד סוף.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          </div>
-          <h3 class="why-title" data-en="Business-First Thinking" data-he="חשיבה עסקית קודם">חשיבה עסקית קודם</h3>
-          <p class="why-desc" data-en="I don't just give legal opinions — I understand your business context and deliver practical solutions that serve your commercial goals." data-he="אני לא רק נותנת חוות דעת משפטית — אני מבינה את ההקשר העסקי שלך ומספקת פתרונות מעשיים שמשרתים את המטרות המסחריות שלך.">אני לא רק נותנת חוות דעת משפטית — אני מבינה את ההקשר העסקי שלך ומספקת פתרונות מעשיים שמשרתים את המטרות המסחריות שלך.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="why-title" data-en="Commercial + Privacy Expertise" data-he="מומחיות מסחרית + פרטיות">מומחיות מסחרית + פרטיות</h3>
-          <p class="why-desc" data-en="A rare combination of commercial law depth and certified privacy expertise — essential for companies operating in today's regulatory environment." data-he="שילוב נדיר של עומק במשפט מסחרי ומומחיות מוסמכת בפרטיות — חיוני לחברות שפועלות בסביבה הרגולטורית של היום.">שילוב נדיר של עומק במשפט מסחרי ומומחיות מוסמכת בפרטיות — חיוני לחברות שפועלות בסביבה הרגולטורית של היום.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          </div>
-          <h3 class="why-title" data-en="Transparent Pricing" data-he="תמחור שקוף">תמחור שקוף</h3>
-          <p class="why-desc" data-en="No hidden fees, no surprise invoices. I offer flexible engagement models — retainer, project-based, or hourly — whatever fits your needs." data-he="ללא עמלות נסתרות, ללא חשבוניות מפתיעות. אני מציעה מודלים גמישים — ריטיינר, פרויקטלי או שעתי — מה שמתאים לצרכים שלך.">ללא עמלות נסתרות, ללא חשבוניות מפתיעות. אני מציעה מודלים גמישים — ריטיינר, פרויקטלי או שעתי — מה שמתאים לצרכים שלך.</p>
-        </div>
+  <!-- ===== SOCIAL PROOF ===== -->
+  <section class="section-alt">
+    <div class="container trust-section reveal">
+      <p class="trust-statement">מלווה ארגונים ממגוון תעשיות בישראל ובעולם</p>
+      <div class="trust-sectors">
+        <span class="sector-tag">פינטק</span>
+        <span class="sector-tag">SaaS</span>
+        <span class="sector-tag">לגלטק</span>
+        <span class="sector-tag">סטארטאפים</span>
+        <span class="sector-tag">תעשייה מסורתית</span>
+        <span class="sector-tag">מגזר ציבורי</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta-band reveal">
     <div class="container">
-      <div class="about-grid">
-        <div class="reveal">
-          <span class="section-label" data-en="About" data-he="אודות">אודות</span>
-          <h2 class="about-name" data-en="Becky Fuhrmann, Adv." data-he="עו״ד בקי פורמן">עו״ד בקי פורמן</h2>
-          <p class="about-text" data-en="I'm an Israeli-licensed attorney with over seven years of experience in commercial and corporate law, specializing in complex transactions, regulatory compliance, and data privacy." data-he="אני עורכת דין מוסמכת בישראל עם למעלה משבע שנות ניסיון במשפט מסחרי ותאגידי, עם התמחות בעסקאות מורכבות, ציות רגולטורי והגנת פרטיות.">אני עורכת דין מוסמכת בישראל עם למעלה משבע שנות ניסיון במשפט מסחרי ותאגידי, עם התמחות בעסקאות מורכבות, ציות רגולטורי והגנת פרטיות.</p>
-          <p class="about-text" data-en="Throughout my career, I've provided ongoing counsel to leading companies and institutions, negotiated and drafted complex agreements — both domestic and international — and served as an external Data Protection Officer for major organizations." data-he="לאורך הקריירה שלי, ליוויתי חברות ומוסדות מובילים בייעוץ שוטף, ניהלתי משא ומתן ועריכת הסכמים מורכבים — בישראל ובינלאומית — ושימשתי כממונה חיצונית על הגנת מידע בארגונים גדולים.">לאורך הקריירה שלי, ליוויתי חברות ומוסדות מובילים בייעוץ שוטף, ניהלתי משא ומתן ועריכת הסכמים מורכבים — בישראל ובינלאומית — ושימשתי כממונה חיצונית על הגנת מידע בארגונים גדולים.</p>
-          <p class="about-text" data-en="Today, as an independent practitioner, I offer the same level of expertise and dedication you'd expect from a top-tier firm — with the personal attention, flexibility, and responsiveness that only a direct relationship can provide." data-he="היום, כעצמאית, אני מציעה את אותה רמת מומחיות ומסירות שתצפו לה ממשרד מוביל — עם תשומת לב אישית, גמישות ומהירות תגובה שרק קשר ישיר יכול לספק.">היום, כעצמאית, אני מציעה את אותה רמת מומחיות ומסירות שתצפו לה ממשרד מוביל — עם תשומת לב אישית, גמישות ומהירות תגובה שרק קשר ישיר יכול לספק.</p>
-          <div class="about-credentials">
-            <div class="about-cred">
-              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-en="Licensed Attorney (Israel Bar)" data-he="רישיון עריכת דין">רישיון עריכת דין</span>
-            </div>
-            <div class="about-cred">
-              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-en="Certified DPO" data-he="הסמכת DPO">הסמכת DPO</span>
-            </div>
-            <div class="about-cred">
-              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-en="LL.M with Honors" data-he="LL.M בהצטיינות">LL.M בהצטיינות</span>
-            </div>
-            <div class="about-cred">
-              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-en="Board Directors Course" data-he="קורס דירקטורים">קורס דירקטורים</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-visual reveal-stagger">
-          <div class="about-stat">
-            <div class="about-stat-num" data-en="7+" data-he="7+">7+</div>
-            <div class="about-stat-label" data-en="Years of<br>experience" data-he="שנות<br>ניסיון">שנות<br>ניסיון</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-num" data-en="LL.M" data-he="LL.M">LL.M</div>
-            <div class="about-stat-label" data-en="With honors" data-he="בהצטיינות">בהצטיינות</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-num">98</div>
-            <div class="about-stat-label" data-en="DPO certification<br>score" data-he="ציון הסמכת<br>DPO">ציון הסמכת<br>DPO</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-num" data-en="DPO" data-he="DPO">DPO</div>
-            <div class="about-stat-label" data-en="For leading<br>organizations" data-he="לארגונים<br>מובילים">לארגונים<br>מובילים</div>
-          </div>
-        </div>
+      <h2>מוכנים לשיחה ראשונית?</h2>
+      <div class="cta-band-actions">
+        <a href="he/contact.html" class="btn btn-primary btn-lg">לקביעת פגישת היכרות</a>
+        <a href="tel:050-772-6286" class="btn btn-outline-light">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          050-772-6286
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROCESS ===== -->
-  <section class="section-alt" id="process">
+  <!-- ===== LATEST INSIGHTS ===== -->
+  <section class="section">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label" data-en="How It Works" data-he="תהליך העבודה">תהליך העבודה</span>
-        <h2 class="section-title" data-en="Simple. Transparent. Effective." data-he="פשוט. שקוף. אפקטיבי.">פשוט. שקוף. אפקטיבי.</h2>
-        <p class="section-subtitle" data-en="Getting started is easy — here's what to expect." data-he="להתחיל זה קל — הנה מה שצפוי לך.">להתחיל זה קל — הנה מה שצפוי לך.</p>
+      <div class="section-header centered reveal">
+        <span class="label">תוכן מקצועי</span>
+        <h2>מהבלוג</h2>
       </div>
-      <div class="process-grid reveal-stagger">
-        <div class="process-step">
-          <div class="process-num">1</div>
-          <h3 class="process-title" data-en="Free Consultation" data-he="פגישת היכרות">פגישת היכרות</h3>
-          <p class="process-desc" data-en="We meet to understand your business, its challenges, and your legal needs — at no cost or obligation." data-he="נפגש כדי להכיר את העסק שלך, האתגרים שלו והצרכים המשפטיים — ללא עלות וללא התחייבות.">נפגש כדי להכיר את העסק שלך, האתגרים שלו והצרכים המשפטיים — ללא עלות וללא התחייבות.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">2</div>
-          <h3 class="process-title" data-en="Clear Proposal" data-he="הצעה ברורה">הצעה ברורה</h3>
-          <p class="process-desc" data-en="You receive a tailored legal strategy with transparent scope and pricing — no surprises." data-he="תקבלו הצעה משפטית מותאמת עם היקף ותמחור שקופים — ללא הפתעות.">תקבלו הצעה משפטית מותאמת עם היקף ותמחור שקופים — ללא הפתעות.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">3</div>
-          <h3 class="process-title" data-en="Ongoing Partnership" data-he="שותפות מתמשכת">שותפות מתמשכת</h3>
-          <p class="process-desc" data-en="I become your dedicated legal partner — available, responsive, and always aligned with your business goals." data-he="אהפוך לשותפה המשפטית הקבועה שלך — זמינה, מגיבה ותמיד מכוונת ליעדים העסקיים שלך.">אהפוך לשותפה המשפטית הקבועה שלך — זמינה, מגיבה ותמיד מכוונת ליעדים העסקיים שלך.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label" data-en="Contact" data-he="יצירת קשר">יצירת קשר</span>
-        <h2 class="section-title" data-en="Let's Discuss Your Needs" data-he="בואו נדבר על הצרכים שלך">בואו נדבר על הצרכים שלך</h2>
-        <p class="section-subtitle" data-en="Leave your details and I'll get back to you within 24 hours." data-he="השאירו פרטים ואחזור אליכם תוך 24 שעות.">השאירו פרטים ואחזור אליכם תוך 24 שעות.</p>
-      </div>
-      <div class="contact-layout">
-        <div class="contact-info reveal">
-          <h3 data-en="Prefer a direct conversation?" data-he="מעדיפים שיחה ישירה?">מעדיפים שיחה ישירה?</h3>
-          <p data-en="Feel free to reach out directly. I'm always happy to hear about new challenges and explore how I can help." data-he="אתם מוזמנים לפנות ישירות. תמיד שמחה לשמוע על אתגרים חדשים ולבדוק איך אני יכולה לעזור.">אתם מוזמנים לפנות ישירות. תמיד שמחה לשמוע על אתגרים חדשים ולבדוק איך אני יכולה לעזור.</p>
-          <div class="contact-methods">
-            <a href="tel:+972507726286" class="contact-method">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-              050-772-6286
-            </a>
-            <a href="mailto:beckyfx3@gmail.com" class="contact-method">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              beckyfx3@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener" class="contact-method">
-              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
+      <div class="grid-3 stagger">
+        <article class="blog-card reveal">
+          <div class="blog-card-body">
+            <span class="label">הגנת פרטיות</span>
+            <h3><a href="he/blog/data-privacy-startups.html">5 דברים שכל סטארטאפ ישראלי חייב לדעת על הגנת פרטיות</a></h3>
+            <p>מ-GDPR ועד רגולציה ישראלית — מה שחובה לדעת לפני שסוגרים סבב גיוס או נכנסים לשוק האירופי.</p>
+            <div class="blog-card-meta">מרץ 2026</div>
           </div>
-        </div>
-        <div class="contact-form reveal">
-          <h3 class="form-title" data-en="Send an Inquiry" data-he="השאירו פרטים">השאירו פרטים</h3>
-          <form id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label data-en="Full Name" data-he="שם מלא">שם מלא</label>
-                <input type="text" name="name" required data-en="Your name" data-he="השם שלך" placeholder="השם שלך">
-              </div>
-              <div class="form-group">
-                <label data-en="Phone" data-he="טלפון">טלפון</label>
-                <input type="tel" name="phone" required data-en="Phone number" data-he="מספר טלפון" placeholder="מספר טלפון">
-              </div>
-            </div>
-            <div class="form-group">
-              <label data-en="Email" data-he="אימייל">אימייל</label>
-              <input type="email" name="email" required data-en="Email address" data-he="כתובת אימייל" placeholder="כתובת אימייל">
-            </div>
-            <div class="form-group">
-              <label data-en="Area of Interest" data-he="תחום עניין">תחום עניין</label>
-              <select name="area">
-                <option value="" data-en="Select a topic" data-he="בחרו נושא">בחרו נושא</option>
-                <option value="commercial" data-en="Commercial Law" data-he="משפט מסחרי">משפט מסחרי</option>
-                <option value="corporate" data-en="Corporate Law" data-he="משפט תאגידי">משפט תאגידי</option>
-                <option value="privacy" data-en="Data Privacy &amp; DPO" data-he="פרטיות מידע ו-DPO">פרטיות מידע ו-DPO</option>
-                <option value="ongoing" data-en="Ongoing Legal Counsel" data-he="ליווי משפטי שוטף">ליווי משפטי שוטף</option>
-                <option value="other" data-en="Other" data-he="אחר">אחר</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label data-en="How can I help?" data-he="איך אוכל לעזור?">איך אוכל לעזור?</label>
-              <textarea name="message" rows="4" data-en="Brief description of your needs..." data-he="תיאור קצר של הצרכים שלך..." placeholder="תיאור קצר של הצרכים שלך..."></textarea>
-            </div>
-            <button type="submit" class="form-submit" data-en="Send Inquiry" data-he="שליחה">שליחה</button>
-            <p class="form-disclaimer" data-en="Your details are kept confidential. Please do not include sensitive information — we'll discuss details in a secure setting." data-he="הפרטים שלך נשמרים בסודיות מלאה. אנא אל תכללו מידע רגיש — נדון בפרטים במסגרת מאובטחת.">הפרטים שלך נשמרים בסודיות מלאה. אנא אל תכללו מידע רגיש — נדון בפרטים במסגרת מאובטחת.</p>
-          </form>
-        </div>
+        </article>
+        <article class="blog-card reveal">
+          <div class="blog-card-body">
+            <span class="label">משפט מסחרי</span>
+            <h3><a href="he/blog/index.html">על מה לשים לב בבדיקת חוזה מסחרי</a></h3>
+            <p>הנקודות הקריטיות שרוב בעלי העסקים מפספסים בחוזים מסחריים — ואיך להימנע מטעויות יקרות.</p>
+            <div class="blog-card-meta">פברואר 2026</div>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <div class="blog-card-body">
+            <span class="label">דיני תאגידים</span>
+            <h3><a href="he/blog/index.html">ממשל תאגידי לחברות בצמיחה: למה זה חשוב עכשיו</a></h3>
+            <p>למה חברות בשלבי גדילה צריכות להשקיע בממשל תאגידי — ואיך זה חוסך בעיות בהמשך הדרך.</p>
+            <div class="blog-card-meta">ינואר 2026</div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
+  <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-copy" data-en="&copy; 2025 Becky Fuhrmann, Adv. All rights reserved." data-he="&copy; 2025 עו״ד בקי פורמן. כל הזכויות שמורות.">&copy; 2025 עו״ד בקי פורמן. כל הזכויות שמורות.</div>
-      <ul class="footer-links">
-        <li><a href="tel:+972507726286">050-772-6286</a></li>
-        <li><a href="mailto:beckyfx3@gmail.com">beckyfx3@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
+      <div class="footer-brand">
+        <strong>עו״ד בקי פורמן</strong>
+        <p>ייעוץ משפטי מסחרי, תאגידי והגנת פרטיות לחברות וארגונים.</p>
+      </div>
+      <div>
+        <h4>ניווט מהיר</h4>
+        <ul class="footer-links">
+          <li><a href="he/commercial.html">משפט מסחרי</a></li>
+          <li><a href="he/corporate.html">דיני תאגידים</a></li>
+          <li><a href="he/privacy.html">הגנת פרטיות</a></li>
+          <li><a href="he/about.html">אודות</a></li>
+          <li><a href="he/blog/index.html">תוכן מקצועי</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>צור קשר</h4>
+        <ul class="footer-links">
+          <li><a href="tel:050-772-6286">050-772-6286</a></li>
+          <li><a href="mailto:becky@fuhrmann-law.co.il">becky@fuhrmann-law.co.il</a></li>
+          <li><a href="https://wa.me/972507726286" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://linkedin.com/in/becky-fuhrmann" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom" data-en="The information on this website does not constitute legal advice and does not create an attorney-client relationship. For legal counsel tailored to your specific needs, please get in touch." data-he="המידע באתר זה אינו מהווה ייעוץ משפטי ואינו יוצר יחסי עורך דין-לקוח. לייעוץ משפטי המותאם לצרכים הספציפיים שלך, אנא צרו קשר.">המידע באתר זה אינו מהווה ייעוץ משפטי ואינו יוצר יחסי עורך דין-לקוח. לייעוץ משפטי המותאם לצרכים הספציפיים שלך, אנא צרו קשר.</div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 עו״ד בקי פורמן. כל הזכויות שמורות.</span>
+    </div>
+    <div class="footer-disclaimer">
+      המידע באתר זה הינו כללי בלבד ואינו מהווה ייעוץ משפטי. יחסי עורך דין-לקוח נוצרים רק בהסכם חתום.
+    </div>
   </footer>
 
-  <script>
-    // ===== LANGUAGE =====
-    let currentLang = 'he';
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-cta">
+    <a href="tel:050-772-6286" class="btn btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      חייגו
+    </a>
+    <a href="https://wa.me/972507726286" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
 
-    function toggleLang() {
-      setLang(currentLang === 'he' ? 'en' : 'he');
-    }
-
-    function setLang(lang) {
-      currentLang = lang;
-      const root = document.documentElement;
-      const btn = document.querySelector('.lang-switch');
-
-      root.setAttribute('lang', lang);
-      root.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
-      btn.textContent = lang === 'he' ? 'EN' : 'עב';
-
-      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-        const val = el.getAttribute('data-' + lang);
-        if (val === null) return;
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-          el.placeholder = val;
-        } else if (el.tagName === 'OPTION') {
-          el.textContent = val;
-        } else {
-          el.innerHTML = val;
-        }
-      });
-    }
-
-    // ===== NAVBAR SCROLL =====
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
-
-    // ===== REVEAL ON SCROLL =====
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => obs.observe(el));
-
-    // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const t = document.querySelector(link.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.querySelector('.nav-links')?.classList.remove('open'); }
-      });
-    });
-
-    // ===== FORM =====
-    function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = form.querySelector('.form-submit');
-      const orig = btn.textContent;
-      btn.textContent = currentLang === 'he' ? 'נשלח בהצלחה!' : 'Sent successfully!';
-      btn.style.background = '#2d8a4e';
-      setTimeout(() => { btn.textContent = orig; btn.style.background = ''; form.reset(); }, 3000);
-    }
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
