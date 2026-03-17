@@ -91,44 +91,29 @@
     });
   });
 
-  // --- Contact form ---
-  const form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
+  // --- Back to top button ---
+  const backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('aria-label', 'Back to top');
+  backToTop.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
+  document.body.appendChild(backToTop);
 
-      // Basic validation
-      const required = form.querySelectorAll('[required]');
-      let valid = true;
-      required.forEach(input => {
-        if (!input.value.trim()) {
-          valid = false;
-          input.style.borderColor = '#c0392b';
-          input.addEventListener('input', () => {
-            input.style.borderColor = '';
-          }, { once: true });
-        }
-      });
+  const toggleBackToTop = () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  };
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  toggleBackToTop();
 
-      if (!valid) return;
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-      // Submit feedback (replace with real submission)
-      btn.disabled = true;
-      btn.textContent = btn.dataset.sending || 'Sending...';
-
-      // Simulate submission — replace with Formspree/Netlify integration
-      setTimeout(() => {
-        btn.textContent = btn.dataset.success || 'Sent successfully!';
-        btn.style.background = '#2d6a4f';
-        form.reset();
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.textContent = originalText;
-          btn.style.background = '';
-        }, 3000);
-      }, 1000);
-    });
-  }
+  // --- Active nav link highlight ---
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
+      link.style.color = 'var(--color-accent)';
+    }
+  });
 })();
