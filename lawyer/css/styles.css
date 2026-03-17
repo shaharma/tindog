@@ -1202,6 +1202,25 @@ h3 {
 .stagger > .reveal:nth-child(5) { transition-delay: 0.4s; }
 .stagger > .reveal:nth-child(6) { transition-delay: 0.5s; }
 
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-image, .hero-content, .hero-content * {
+    animation: none !important;
+  }
+}
+
+/* Fallback when JS is disabled */
+noscript + .reveal,
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */

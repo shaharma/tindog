@@ -54,6 +54,7 @@
 
   // --- FAQ Accordion ---
   document.querySelectorAll('.faq-question').forEach(button => {
+    button.setAttribute('aria-expanded', 'false');
     button.addEventListener('click', () => {
       const item = button.closest('.faq-item');
       const answer = item.querySelector('.faq-answer');
@@ -63,12 +64,14 @@
       document.querySelectorAll('.faq-item.open').forEach(openItem => {
         openItem.classList.remove('open');
         openItem.querySelector('.faq-answer').style.maxHeight = '0';
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
       });
 
       // Toggle current
       if (!isOpen) {
         item.classList.add('open');
         answer.style.maxHeight = answer.scrollHeight + 'px';
+        button.setAttribute('aria-expanded', 'true');
       }
     });
   });
